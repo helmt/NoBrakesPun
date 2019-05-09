@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 62174f959ff0f1d4881f21405351a00a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ankleL
+    100002: ankleR
+    100004: Armature
+    100006: armL
+    100008: armR
+    100010: bike
+    100012: bikecopy
+    100014: calfL
+    100016: calfR
+    100018: footL
+    100020: footL_end
+    100022: footR
+    100024: footR_end
+    100026: foreL
+    100028: foreL_end
+    100030: foreR
+    100032: foreR_end
+    100034: fork
+    100036: fork_end
+    100038: frame
+    100040: frame_end
+    100042: head
+    100044: head_end
+    100046: hipL
+    100048: hipR
+    100050: legL
+    100052: legR
+    100054: neck
+    100056: //RootNode
+    100058: shoulderR
+    100060: soulderL
+    100062: spine
+    400000: ankleL
+    400002: ankleR
+    400004: Armature
+    400006: armL
+    400008: armR
+    400010: bike
+    400012: bikecopy
+    400014: calfL
+    400016: calfR
+    400018: footL
+    400020: footL_end
+    400022: footR
+    400024: footR_end
+    400026: foreL
+    400028: foreL_end
+    400030: foreR
+    400032: foreR_end
+    400034: fork
+    400036: fork_end
+    400038: frame
+    400040: frame_end
+    400042: head
+    400044: head_end
+    400046: hipL
+    400048: hipR
+    400050: legL
+    400052: legR
+    400054: neck
+    400056: //RootNode
+    400058: shoulderR
+    400060: soulderL
+    400062: spine
+    2100000: rims
+    2100002: tires
+    2100004: frame
+    2100006: stempost
+    2100008: fork
+    2100010: bartape
+    2100012: jersey
+    2100014: shorts
+    2100016: skin
+    2100018: helmet
+    2100020: socks
+    2100022: shoes
+    2100024: bag
+    2300000: bikecopy
+    3300000: bikecopy
+    4300000: bikecopy
+    4300002: bike
+    7400000: Armature|footer
+    7400002: Armature|Pedal
+    7400004: Armature|putfoot
+    7400006: Armature|turnLeft
+    7400008: Armature|turnRight
+    9500000: //RootNode
+    13700000: bike
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bag
+    second: {fileID: 2100000, guid: 6ff1cd0d7e62c4147acdd723eb5aa3c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bartape
+    second: {fileID: 2100000, guid: 156bbb64959378446a2418a1c6cf3e09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fork
+    second: {fileID: 2100000, guid: fbef8bd80d9c42747a6c710e3c101531, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame
+    second: {fileID: 2100000, guid: e6e0e45915a723149aeeb7686fe1bf48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: helmet
+    second: {fileID: 2100000, guid: 88187e9c6962aa84191129b35c54a646, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jersey
+    second: {fileID: 2100000, guid: 3af892a929a758e43ad9110ca6a8eea5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rims
+    second: {fileID: 2100000, guid: 341f18215412a6f4aa31855f474dd2ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes
+    second: {fileID: 2100000, guid: 71123ff3d1aec464aa2028898554c6f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shorts
+    second: {fileID: 2100000, guid: bc4512b0a107ada49aebfc1f9cd4c3c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skin
+    second: {fileID: 2100000, guid: 57c3acf2d2ff1254f806186b5fe2525a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: socks
+    second: {fileID: 2100000, guid: 84f75660f55165e47a45b42461c2e819, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stempost
+    second: {fileID: 2100000, guid: a479b7b82c5eaf346a8031e74f80df78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tires
+    second: {fileID: 2100000, guid: e343f67ee137f4b4ba137678c522e65e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
