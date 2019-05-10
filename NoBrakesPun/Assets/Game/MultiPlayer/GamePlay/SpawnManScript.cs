@@ -8,7 +8,7 @@ using UnityEngine;
 public class SpawnManScript : MonoBehaviourPun
 {
     public Dictionary<string, int> spawns;
-    private bool[] occupied = new bool[6]; 
+    public bool[] occupied = new bool[6]; 
     System.Random rng = new System.Random();
 
     private void Awake() => DontDestroyOnLoad(gameObject);

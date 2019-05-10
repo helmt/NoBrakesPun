@@ -10,13 +10,14 @@ public class BikeController : MonoBehaviourPun, IPunObservable
     public WheelCollider RearRight;
 
     public Rigidbody bike;
+    public ParticleSystem particles;
     
     public float Torque = 30000;
     public float Speed;
     public float MaxSpeed = 200f;
     public float reverseMaxSpeed = 30;
     public int Brake = 30000;
-    public float CoefAcc = 5f;
+    public float CoefAcc = 15f;
     private float WheelAngleMax = 5f;
     private float DAmax = 10f;
 
@@ -78,14 +79,15 @@ public class BikeController : MonoBehaviourPun, IPunObservable
         if (Input.GetKey(KeyCode.LeftShift))
         {
             WheelFrictionCurve drifting = RearLeft.sidewaysFriction;
-            drifting.stiffness = 0;
+            drifting.stiffness = 5;
             RearLeft.sidewaysFriction = drifting;
             RearRight.sidewaysFriction = drifting;
+            if (Speed > 50) particles.Play();
         }
         else
         {
             WheelFrictionCurve drifting = RearLeft.sidewaysFriction;
-            drifting.stiffness = 8;
+            drifting.stiffness = 20;
             RearLeft.sidewaysFriction = drifting;
             RearRight.sidewaysFriction = drifting;
         }

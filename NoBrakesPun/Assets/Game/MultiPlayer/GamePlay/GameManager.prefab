@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3786004260280099689}
+  - component: {fileID: 3781802560064753233}
   m_Layer: 0
   m_Name: SpawnPoint (5)
   m_TagString: Untagged
@@ -30,6 +31,21 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648318409519929966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: efa1b5f9dc11eff4f9b7bd53cf851cd1, type: 2}
+  helmetMat: {fileID: 2100000, guid: 8bc564195873dec49b88862a627f9073, type: 2}
+  bikeMat: {fileID: 2100000, guid: 22d7d0617e30bda4883170cd10c63300, type: 2}
 --- !u!1 &1034381269740934388
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974311867979887633}
+  - component: {fileID: 3781802560064753236}
   m_Layer: 0
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
@@ -60,6 +77,21 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034381269740934388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: 2058d9a09bf2c4b479d53d8c45ba6003, type: 2}
+  helmetMat: {fileID: 2100000, guid: e225eeba2166a0844bd6460ffd0f51cc, type: 2}
+  bikeMat: {fileID: 2100000, guid: 1e1ae0a6fac6ee340a33230007008565, type: 2}
 --- !u!1 &3175968317988057433
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3814508635637375508}
+  - component: {fileID: 3781802560064753235}
   m_Layer: 0
   m_Name: SpawnPoint (3)
   m_TagString: Untagged
@@ -90,6 +123,21 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175968317988057433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: 8bc36b6fb64c91a47857e46f348d5448, type: 2}
+  helmetMat: {fileID: 2100000, guid: a650e3101f4caa045bbcf71217e4fdd9, type: 2}
+  bikeMat: {fileID: 2100000, guid: bcd9fefcd60e4fa4987b5ffb6b7fd1d1, type: 2}
 --- !u!1 &3512681252267668818
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5929232725110059137}
+  - component: {fileID: 3781802560064753237}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
@@ -120,6 +169,21 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3512681252267668818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: 3a6d76ba5dfda604ea52bd1f3b2e8ae2, type: 2}
+  helmetMat: {fileID: 2100000, guid: 41194fea75238984688426ce3818e0be, type: 2}
+  bikeMat: {fileID: 2100000, guid: cfc5f5db20bba8843a3bf108bea1837b, type: 2}
 --- !u!1 &3635771435190418103
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5152103873134760278}
+  - component: {fileID: 3781802560064753238}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -223,6 +288,21 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5224611859014120677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: f8526cb32f6596a46b675564bd2449ce, type: 2}
+  helmetMat: {fileID: 2100000, guid: 9c3f2568e3d0a2a4685a132aa7ea0a26, type: 2}
+  bikeMat: {fileID: 2100000, guid: 68280d5d603ce2e4886f18a5d05e197a, type: 2}
 --- !u!1 &7891589281208791603
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 91238416574260517}
+  - component: {fileID: 3781802560064753234}
   m_Layer: 0
   m_Name: SpawnPoint (4)
   m_TagString: Untagged
@@ -253,3 +334,18 @@ Transform:
   m_Father: {fileID: 5115727772010135831}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3781802560064753234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891589281208791603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtMat: {fileID: 2100000, guid: 6d6289545f25543498f5e8f8941a6555, type: 2}
+  helmetMat: {fileID: 2100000, guid: 8ff8d741b8ee345488c3d87025b72ccd, type: 2}
+  bikeMat: {fileID: 2100000, guid: 4f809fe5c056ca44199c70e1f9044a14, type: 2}
