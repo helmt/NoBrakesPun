@@ -18,7 +18,7 @@ public class Move : MonoBehaviour
     public float minSpeed = 5f;
     private float speed = 50f;
     private float realSpeed;
-    public float reachDistance = 1f;
+    private float reachDistance = 2f;
     public float rotationSpeed = 8f;
     private float distance;
 
@@ -132,5 +132,15 @@ public class Move : MonoBehaviour
                 FindNextNode();
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        active = false;
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        active = true;
     }
 }

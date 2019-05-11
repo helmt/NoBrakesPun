@@ -21,6 +21,9 @@ public class BikeController : MonoBehaviourPun, IPunObservable
     private float WheelAngleMax = 5f;
     private float DAmax = 10f;
 
+    public bool gamePaused;
+    private Vector3 nullVector3 = new Vector3(0f, 0f, 0f);
+
     public Animator anim;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
@@ -36,6 +39,12 @@ public class BikeController : MonoBehaviourPun, IPunObservable
     public void Update()
     {
         if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+        if (gamePaused)
+        {
+            GetComponent<AudioSource>().volume = 0f;
+            bike.velocity = nullVector3;
+            return;
+        }
         
         GetComponent<AudioSource>().pitch = Speed / MaxSpeed + 1f;
         GetComponent<AudioSource>().volume = Speed / MaxSpeed;
@@ -73,7 +82,7 @@ public class BikeController : MonoBehaviourPun, IPunObservable
 
     public void FixedUpdate()
     {
-        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+        if (!photonView.IsMine && PhotonNetwork.IsConnected || gamePaused) return;
 
         // Drifting
         if (Input.GetKey(KeyCode.LeftShift))
@@ -91,6 +100,11 @@ public class BikeController : MonoBehaviourPun, IPunObservable
             RearLeft.sidewaysFriction = drifting;
             RearRight.sidewaysFriction = drifting;
         }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("vehicle")) bike.velocity = nullVector3;
     }
 }
 

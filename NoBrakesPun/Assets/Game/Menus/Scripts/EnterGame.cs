@@ -117,7 +117,7 @@ public class EnterGame : MonoBehaviourPunCallbacks
         multiScreen.SetActive(true);
     }
     
-    void Start()
+    public void ResetMenu()
     {
         startScreen.SetActive(true);
         mainScreen.SetActive(false);
@@ -130,4 +130,8 @@ public class EnterGame : MonoBehaviourPunCallbacks
         waitingScreen.SetActive(false);
         loadingScreen.SetActive(false);
     }
+
+    void OnEnable() => ResetMenu();
+
+    private void Start() => ResetMenu();
 }

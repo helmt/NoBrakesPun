@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PackMan : MonoBehaviourPun, IPunObservable
 {
-    //public Player player;
     public GameObject mesh;
     Material[] mats;
     public Material pack;
@@ -26,29 +25,15 @@ public class PackMan : MonoBehaviourPun, IPunObservable
         rend.materials = mats;
     }
 
-    // Update is called once per frame
-    void Update()
+    void MakePack()
     {
-        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
-        /*
-         If player has job :
-            pack.set shader not transparent
-        else
-            pack set transparent
-         */
-    }
-
-    public void NewJob()
-    {
-
         mats[12] = pack;
         rend.materials = mats;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void LosePack()
     {
-        // lose job
-        //mats[12] = nopack;
-        //rend.materials = mats;
+        mats[12] = nopack;
+        rend.materials = mats;
     }
 }

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Job.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\LeaderBoard.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Map.cs" />
+    <Compile Include="Assets\Game\MultiPlayer\GamePlay\MusicManager.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\PlayerManager.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Resto.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Rider.cs" />
@@ -94,9 +95,10 @@
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\SpawnPointScript.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Timer_Game.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Timer_job.cs" />
+    <Compile Include="Assets\Game\MultiPlayer\HUD\Minimap.cs" />
+    <Compile Include="Assets\Game\MultiPlayer\HUD\PauseMenu.cs" />
     <Compile Include="Assets\Game\MultiPlayer\Intelligence\Scripts\Graph.cs" />
     <Compile Include="Assets\Game\MultiPlayer\Intelligence\Scripts\Move.cs" />
-    <Compile Include="Assets\Game\MultiPlayer\MiniMap\MiniMap.cs" />
     <Compile Include="Assets\Game\MultiPlayer\Resources\Scripts\AnimatorMan.cs" />
     <Compile Include="Assets\Game\MultiPlayer\Resources\Scripts\BikeController.cs" />
     <Compile Include="Assets\Game\MultiPlayer\Resources\Scripts\CameraSwitch.cs" />

@@ -10,11 +10,26 @@ public class Rider : MonoBehaviourPun, IPunObservable
     public GameObject spawnParent;
     public static GameObject localPlayerInstance;
     public Renderer meshRender;
+    public SpriteRenderer iconRender;
+    private GameObject minimapCam;
+    
+    private Tuple<int, Material[]> materialPackage;
+
+    public bool hasJob;
+    public PackMan packMan;
     
     void Awake()
     {
         if (photonView.IsMine)
+        {
             localPlayerInstance = this.gameObject;
+            localPlayerInstance.name = PhotonNetwork.NickName;
+            minimapCam = GameObject.Find("MinimapCam");
+            minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);
+        }
+        else
+            gameObject.GetComponent<AudioListener>().enabled = false;
+
     }
 
     private void Start()
@@ -24,17 +39,17 @@ public class Rider : MonoBehaviourPun, IPunObservable
         localPlayerInstance.transform.position = spawnParent.transform.GetChild(spawn).position;
         SpawnPointScript spawnMats = spawnParent.transform.GetChild(spawn).gameObject.GetComponent<SpawnPointScript>();
         
-        // Set frame, shirt and helmet mat
+        // Set frame, shirt and helmet mat + icon
         Material[] mats = meshRender.materials;
         meshRender.enabled = true;
-        mats[2] = spawnMats.bikeMat; // frame
+        mats[2] = mats[4] = spawnMats.bikeMat; // frame & fork
         mats[6] = spawnMats.shirtMat; // shirt
         mats[9] = spawnMats.helmetMat; // helmet
         meshRender.materials = mats;
+        iconRender.material = spawnMats.bikeMat;
         
         if (GameObject.Find("Loading"))
             GameObject.Find("Loading").SetActive(false);
-
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}

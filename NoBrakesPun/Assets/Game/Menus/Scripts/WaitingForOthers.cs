@@ -15,6 +15,7 @@ public class WaitingForOthers : MonoBehaviourPunCallbacks
     public Text statusText;
     public GameObject loadingScreen;
     public GameObject spawnMan;
+    public EnterGame enterGame;
     
     private bool loadedLevel;
     
