@@ -55,26 +55,26 @@
           </e>
           <e p="MultiPlayer" t="Include">
             <e p="GamePlay" t="Include">
+              <e p="CollisionHandler.cs" t="Include" />
               <e p="DropZone.cs" t="Include" />
-              <e p="Game.cs" t="Include" />
+              <e p="FollowPlayerOrientation.cs" t="Include" />
               <e p="GameMan.cs" t="Include" />
               <e p="Job.cs" t="Include" />
               <e p="LeaderBoard.cs" t="Include" />
-              <e p="Map.cs" t="Include" />
+              <e p="LookAtPlayer.cs" t="Include" />
+              <e p="MainTimer.cs" t="Include" />
               <e p="MusicManager.cs" t="Include" />
-              <e p="PlayerManager.cs" t="Include" />
-              <e p="Resto.cs" t="Include" />
+              <e p="Restaurant.cs" t="Include" />
               <e p="Rider.cs" t="Include" />
               <e p="SpawnManScript.cs" t="Include" />
               <e p="SpawnPointScript.cs" t="Include" />
-              <e p="Timer_Game.cs" t="Include" />
-              <e p="Timer_job.cs" t="Include" />
             </e>
             <e p="HUD" t="Include">
               <e p="MiniMap.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
             </e>
             <e p="Intelligence" t="Include">
+              <e p="HonkScript.cs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="Graph.cs" t="Include" />
                 <e p="Move.cs" t="Include" />

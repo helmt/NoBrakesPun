@@ -89,9 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f699554014ed248a9ea415220dcef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shirtMat: {fileID: 2100000, guid: 2058d9a09bf2c4b479d53d8c45ba6003, type: 2}
+  shirtMat: {fileID: 2100000, guid: 1e1ae0a6fac6ee340a33230007008565, type: 2}
   helmetMat: {fileID: 2100000, guid: e225eeba2166a0844bd6460ffd0f51cc, type: 2}
-  bikeMat: {fileID: 2100000, guid: 1e1ae0a6fac6ee340a33230007008565, type: 2}
+  bikeMat: {fileID: 2100000, guid: 2058d9a09bf2c4b479d53d8c45ba6003, type: 2}
 --- !u!1 &3175968317988057433
 GameObject:
   m_ObjectHideFlags: 0

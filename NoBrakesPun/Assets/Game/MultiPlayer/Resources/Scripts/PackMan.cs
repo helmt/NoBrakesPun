@@ -25,7 +25,7 @@ public class PackMan : MonoBehaviourPun, IPunObservable
         rend.materials = mats;
     }
 
-    void MakePack()
+    public void MakePack()
     {
         mats[12] = pack;
         rend.materials = mats;

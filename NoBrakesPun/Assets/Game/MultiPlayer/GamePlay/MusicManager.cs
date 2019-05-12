@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource musicSource;
 
     public Transform cars;
+    private AudioSource[] carSources;
     
 
     private void Start() => musicSource.clip = noJobTrack;
@@ -24,7 +25,11 @@ public class MusicManager : MonoBehaviour
         foreach (Transform car in cars)
         {
             if (car.CompareTag("vehicle"))
-                car.gameObject.GetComponent<AudioSource>().volume = volume;
+            {
+                carSources = car.gameObject.GetComponents<AudioSource>();
+                carSources[0].volume = volume;
+                carSources[1].volume = volume;
+            }
         }
 
         if (GameObject.Find(PhotonNetwork.NickName))

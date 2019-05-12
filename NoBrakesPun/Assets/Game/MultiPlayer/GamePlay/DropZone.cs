@@ -6,47 +6,23 @@ using UnityEngine;
 
 public class DropZone : MonoBehaviour
 {
-    private float x;
+    public GameObject topIcon;
+    public GameObject icon;
 
+    public void StartJob()
+    {
+        topIcon.SetActive(true);
+        icon.SetActive(true);
+    }
+
+    public void EndJob()
+    {
+        topIcon.SetActive(false);
+        icon.SetActive(false);
+    }
+    
     private void Start()
     {
-        _renderer1 = GetComponent<Renderer>();
-        _renderer = GetComponent<Renderer>();
+        EndJob();
     }
-
-    private float y;
-    [SerializeField] public GameObject Physicalobject;
-    [SerializeField] private Material[] _materials;
-    private Renderer _renderer;
-    private Renderer _renderer1;
-
-
-    public DropZone(float x, float y)
-    {
-        this.x = x;
-        this.y = y; 
-    }
-
-    public float Getposition_x()
-    {
-        return x; 
-    }
-
-    public float Getposistion_y()
-    {
-        return y; 
-    }
-
-    private void Update()
-    {
-        if (Physicalobject.activeSelf)
-        {
-            _renderer.material= _materials[0]; 
-        }
-        else
-        {
-            _renderer1.material= _materials[1]; 
-        }
-    }
-
 }

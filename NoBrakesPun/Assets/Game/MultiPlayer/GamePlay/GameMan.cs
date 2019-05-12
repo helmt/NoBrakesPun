@@ -16,7 +16,7 @@ public class GameMan : MonoBehaviourPun, IPunObservable
     private void Start()
     {
         loadingScreen.SetActive(true);
-        if (PlayerManager.localPlayerInstance == null)
+        if (Rider.localPlayerInstance == null)
         {
             GameObject player = PhotonNetwork.Instantiate("Rider", new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             player.AddComponent<CameraWork>();
