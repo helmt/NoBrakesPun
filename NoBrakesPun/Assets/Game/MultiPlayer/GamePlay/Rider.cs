@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.Animations;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class Rider : MonoBehaviourPun, IPunObservable
 {
+    public Transform meshTransform; // Actual position
+    
     public GameObject spawnParent;
     public static GameObject localPlayerInstance;
     public Renderer meshRender;
@@ -16,20 +20,20 @@ public class Rider : MonoBehaviourPun, IPunObservable
     
     private Tuple<int, Material[]> materialPackage;
 
-    public GameObject restaurantParentGo;
-    public GameObject dropzoneParentGo;
-
     public bool hasJob;
     public PackMan packMan;
+    public GameObject musicManGo;
+    private MusicManager musicMan;
 
     public int cash;
     public Job job;
     private DropZone _dropZone;
     public float missionTime;
-    public GameObject missionTimeUI;
-    public GameObject mainTimeUI;
-    public GameObject cashUI;
-    public GameObject missionStatus;
+    private TextMeshProUGUI missionTimeUI;
+    private TextMeshProUGUI mainTimeUI;
+    private TextMeshProUGUI cashUI;
+    private TextMeshProUGUI missionStatus;
+    private TextMeshProUGUI promptText;
 
     private float missionStatusTimer;
     private bool missionStatusCountdown;
@@ -39,25 +43,35 @@ public class Rider : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine)
         {
             localPlayerInstance = this.gameObject;
-            Debug.LogWarning(localPlayerInstance != null);
             localPlayerInstance.name = PhotonNetwork.NickName;
             minimapCam = GameObject.Find("MinimapCam");
             minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);
         }
         else
             gameObject.GetComponent<AudioListener>().enabled = false;
-
     }
     
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
 
+    public void Prompt()
+    {
+        promptText.text = "PRESS [E] TO ACCEPT DELIVERY JOB";
+    }
+
+    public void EndPrompt()
+    {
+        promptText.text = "";
+    }
+    
     public void StartJob(Job job)
     {
+        EndPrompt();
         hasJob = true;
         this.job = job;
-        missionTimeUI.gameObject.SetActive(true);
+        _dropZone = job.destination.GetComponent<DropZone>();
         missionTime = job.time;
         packMan.MakePack();
+        musicMan.SetJobTrack();
         _dropZone.StartJob();
     }
 
@@ -66,26 +80,27 @@ public class Rider : MonoBehaviourPun, IPunObservable
         missionStatusCountdown = true;
         job = null;
         hasJob = false;
-        missionTimeUI.gameObject.SetActive(false);
+        missionTimeUI.text = "";
         _dropZone.EndJob();
         _dropZone = null;
         packMan.LosePack();
+        musicMan.SetNoJobTrack();
     }
     
     public void CashIn()
     {
         cash += job.price;
-        cashUI.GetComponent<TextMeshProUGUI>().text = cash + " $";
-        missionStatus.GetComponent<TextMeshProUGUI>().text = "+ " + job.price + " $";
-        missionStatus.GetComponent<TextMeshProUGUI>().color = Color.green;
+        cashUI.text = cash + " $";
+        missionStatus.color = Color.green;
+        missionStatus.text = "+ " + job.price + " $";
         missionStatusCountdown = true;
         EndJob();
     }
 
     public void FailMission()
     {
-        missionStatus.GetComponent<TextMeshProUGUI>().text = "PACKAGE LOST";
-        missionStatus.GetComponent<TextMeshProUGUI>().color = Color.red;
+        missionStatus.color = Color.red;
+        missionStatus.text = "PACKAGE LOST";
         missionStatusCountdown = true;
         EndJob();
     }
@@ -93,6 +108,13 @@ public class Rider : MonoBehaviourPun, IPunObservable
     private void Start()
     {
         if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
+        promptText = GameObject.Find("Prompt").GetComponent<TextMeshProUGUI>();
+        missionTimeUI = GameObject.Find("MissionTimeText").GetComponent<TextMeshProUGUI>();
+        mainTimeUI = GameObject.Find("MainTimerText").GetComponent<TextMeshProUGUI>();
+        cashUI = GameObject.Find("CashText").GetComponent<TextMeshProUGUI>();
+        missionStatus = GameObject.Find("MissionStatus").GetComponent<TextMeshProUGUI>();
+        
         int spawn = GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().spawns[PhotonNetwork.NickName];
         localPlayerInstance.transform.position = spawnParent.transform.GetChild(spawn).position;
         SpawnPointScript spawnMats = spawnParent.transform.GetChild(spawn).gameObject.GetComponent<SpawnPointScript>();
@@ -109,22 +131,20 @@ public class Rider : MonoBehaviourPun, IPunObservable
         if (GameObject.Find("Loading"))
             GameObject.Find("Loading").SetActive(false);
 
-        missionTimeUI.SetActive(false);
-        cashUI.GetComponent<TextMeshProUGUI>().text = "0 $";
+        missionTimeUI.text = "";
+        cashUI.text = "0 $";
         cash = 0;
         
         hasJob = false;
         job = null;
         _dropZone = null;
 
+        musicMan = musicManGo.GetComponent<MusicManager>();
+
         missionStatusTimer = 3f;
         missionStatusCountdown = false;
-        missionStatus.GetComponent<TextMeshProUGUI>().text = "";
-
-        Transform dropzoneParent = dropzoneParentGo.transform;
-        Transform restaurantParent = restaurantParentGo.transform;
-        foreach (Transform child in dropzoneParent) child.gameObject.SetActive(true);
-        foreach (Transform child in restaurantParent) child.gameObject.SetActive(true);
+        missionStatus.text = "";
+        EndPrompt();
     }
 
     private void Update()
@@ -132,14 +152,19 @@ public class Rider : MonoBehaviourPun, IPunObservable
         if (hasJob)
         {
             missionTime -= Time.deltaTime;
-            missionTimeUI.GetComponent<TextMeshProUGUI>().text = missionTime / 60 + "' " + missionTime % 60 + "''";
+            missionTimeUI.text = (int) missionTime / 60 + "' " + (int) missionTime % 60 + "''";
+            if (missionTime <= 0f)
+                FailMission();
+            else if (Vector3.Distance(transform.position, _dropZone.transform.position) < 20f)
+                CashIn();
+            
         }
         else if (missionStatusCountdown)
         {
             missionStatusTimer -= Time.deltaTime;
             if (missionStatusTimer <= 0f)
             {
-                missionStatus.GetComponent<TextMeshProUGUI>().text = "";
+                missionStatus.text = "";
                 missionStatusCountdown = false;
                 missionStatusTimer = 3f;
             }

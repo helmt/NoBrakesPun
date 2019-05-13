@@ -1,10 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 public class Restaurant : MonoBehaviour
 {
+    public int destinationIndex;
+    
     private Rider rider;
     private Transform player;
     public GameObject dropZoneParent;
@@ -18,16 +23,17 @@ public class Restaurant : MonoBehaviour
     public TextMeshProUGUI distanceUI;
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI cashUI;
-    
+    private bool playerInRange;
     
     public int type; // 0 for burger, 1 for sushi, 2 for greek
     private GameObject destination;
     private Job job;
+    private bool newOrder;
+    private bool prompted;
 
-    public GameObject promptText;
-
-    private void GenerateJob()
+    public void GenerateJob()
     {
+        destinationIndex = rng.Next(dropzones);
         GameObject destination = dropZoneParent.transform.GetChild(rng.Next(dropzones)).gameObject;
         int distance = (int) Vector3.Distance(destination.transform.position, transform.position);
         int reward = type == 2 ? 15 : (type == 1 ? 10 : 5); // Minimum pay
@@ -38,22 +44,23 @@ public class Restaurant : MonoBehaviour
         timeUI.text = missionTime / 60 + "' " + missionTime % 60 + "''";
         cashUI.text = reward + " $";
         
-        job = new Job(reward, missionTime, destination, player);
+        job = new Job(reward, missionTime, destination, rider.meshTransform);
     }
 
-    private bool CheckForPlayer() => rider.hasJob && Vector3.Distance(player.position, transform.position) < 5f;
+    private bool CheckForPlayer(float reach) => !rider.hasJob && Vector3.Distance(rider.meshTransform.position, transform.position) < reach;
     
     private void Start()
     {
         rng = new System.Random();
         coolDown = 60f;
         onCoolDown = false;
-        promptText.SetActive(false);
         dropzones = dropZoneParent.transform.childCount;
-        
+        playerInRange = false;
         player = Rider.localPlayerInstance.transform;
         rider = player.GetComponent<Rider>();
-        GenerateJob();
+        prompted = false;
+        newOrder = false;
+        GenerateJob(); // Called to avoid errors but value will be overwritten
     }
 
     private void Update()
@@ -72,21 +79,36 @@ public class Restaurant : MonoBehaviour
             }
             return;
         }
-        
-        if (CheckForPlayer())
+
+        if (!newOrder && CheckForPlayer(200f))
         {
-            promptText.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Return))
+            GenerateJob();
+            newOrder = true;
+        }
+        
+        if (CheckForPlayer(20f))
+        {
+            if (!prompted)
+            {
+                rider.Prompt();
+                prompted = true;
+            }
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 rider.StartJob(job);
-                promptText.SetActive(false);
+                newOrder = false;
                 onCoolDown = true;
-                GenerateJob();
                 foreach (GameObject ui in panel)
                 {
                     ui.SetActive(false);
                 }
             }
-        }  
+        }
+        else if (prompted)
+        {
+            prompted = false;
+            rider.EndPrompt();
+        }
+            
     } 
 }

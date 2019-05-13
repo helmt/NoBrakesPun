@@ -360,26 +360,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6abe566a2fb2c4989b137ebb2aca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshTransform: {fileID: 1150}
   spawnParent: {fileID: 3635771435190418103, guid: f9cbfe794aab7a445a9e73d1593b8a86,
     type: 3}
   meshRender: {fileID: 2200}
   iconRender: {fileID: 2208}
-  restaurantParentGo: {fileID: 1795696197589566896, guid: d37221f738b062a4ea64f06c8a3b9ebc,
-    type: 3}
-  dropzoneParentGo: {fileID: 709262593709178476, guid: 43a05184f79805e49a65c6ffe0fec7f1,
-    type: 3}
   hasJob: 0
   packMan: {fileID: 2219}
+  musicManGo: {fileID: 6387741349361316646, guid: 5f416f09c74387145b32b099f04b38cc,
+    type: 3}
   cash: 0
-  job: {fileID: 0}
   missionTime: 0
-  missionTimeUI: {fileID: 5824685171578976650, guid: fd7a74f6bb374044d84aa14987f7aaef,
-    type: 3}
-  mainTimeUI: {fileID: 7154953034953414119, guid: cfc2f2407a2aff74ea28c088129ff0bd,
-    type: 3}
-  cashUI: {fileID: 804481540418386289, guid: 4ce284ae5459b634491c45f805a4d0d8, type: 3}
-  missionStatus: {fileID: 112085183946929227, guid: 4858ee6dfe242d841ac84d7c2e5137c0,
-    type: 3}
 --- !u!114 &2216
 MonoBehaviour:
   m_ObjectHideFlags: 0
