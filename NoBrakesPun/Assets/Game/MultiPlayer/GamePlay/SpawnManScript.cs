@@ -5,13 +5,27 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class SpawnManScript : MonoBehaviourPun
+public class SpawnManScript : MonoBehaviourPun, IPunObservable
 {
     public Dictionary<string, int> spawns;
     public bool[] occupied = new bool[6]; 
     System.Random rng = new System.Random();
 
     public int gameTime;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(occupied);
+            stream.SendNext(gameTime);
+        }
+        else
+        {
+            occupied = (bool[]) stream.ReceiveNext();
+            gameTime = (int) stream.ReceiveNext();
+        }
+    }
 
     private void Awake() => DontDestroyOnLoad(gameObject);
 

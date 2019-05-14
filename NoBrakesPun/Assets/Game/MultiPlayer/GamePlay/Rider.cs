@@ -8,7 +8,7 @@ using UnityEngine.Experimental.Animations;
 using UnityEngine.UI;
 using Random = System.Random;
 
-public class Rider : MonoBehaviourPun, IPunObservable
+public class Rider : MonoBehaviourPunCallbacks, IPunObservable
 {
     // public static GameObject localPlayerInstance;
     
@@ -47,6 +47,8 @@ public class Rider : MonoBehaviourPun, IPunObservable
     private int smoothingDelay = 5;
     private Vector3 correctPlayerPos = Vector3.zero;
     private Quaternion correctPlayerRot = Quaternion.identity;
+    private string correctNick;
+    private int correctCash;
 
     private bool firstJob;
     
@@ -60,23 +62,28 @@ public class Rider : MonoBehaviourPun, IPunObservable
             minimapCam = GameObject.Find("MinimapCam");
             minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);
         }
-        else
+        else if (gameObject.GetComponent<AudioListener>())
             gameObject.GetComponent<AudioListener>().enabled = false;
     }
 
+    #region IPunObservable implementation
+    
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            stream.SendNext(PhotonNetwork.NickName);
+            stream.SendNext(cash);
         }
-        else
+        else if (stream.IsReading)
         {
-            correctPlayerPos = (Vector3) stream.ReceiveNext();
-            correctPlayerRot = (Quaternion) stream.ReceiveNext();
+            correctNick = (string) stream.ReceiveNext();
+            correctCash = (int) stream.ReceiveNext();
+            GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().RankingUpdate(correctNick, correctCash);
         }
     }
+    
+    #endregion
 
     public void Prompt()
     {
@@ -122,7 +129,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         missionStatus.text = "+ " + job.price + " $";
         missionStatusCountdown = true;
         EndJob();
-        leaderBoard.GetComponent<LeaderBoard>().photonView.RPC("RankingUpdate", RpcTarget.All, PhotonNetwork.NickName, cash);
+        GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().RankingUpdate(PhotonNetwork.NickName, cash);
     }
 
     public void FailMission()
@@ -145,7 +152,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         cashUI = GameObject.Find("CashText").GetComponent<TextMeshProUGUI>();
         missionStatus = GameObject.Find("MissionStatus").GetComponent<TextMeshProUGUI>();
         
-        int spawn = GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().spawns[PhotonNetwork.NickName];
+        int spawn = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().spawns[PhotonNetwork.NickName];
         transform.position = spawnParent.transform.GetChild(spawn).position;
         SpawnPointScript spawnMats = spawnParent.transform.GetChild(spawn).gameObject.GetComponent<SpawnPointScript>();
 

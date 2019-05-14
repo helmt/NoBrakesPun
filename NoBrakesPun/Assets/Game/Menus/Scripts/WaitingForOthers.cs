@@ -14,7 +14,6 @@ public class WaitingForOthers : MonoBehaviourPunCallbacks
     public TextMeshProUGUI playerList;
     public Text statusText;
     public GameObject loadingScreen;
-    public GameObject spawnMan;
     public EnterGame enterGame;
     
     private bool loadedLevel;
@@ -25,7 +24,7 @@ public class WaitingForOthers : MonoBehaviourPunCallbacks
         {
             statusText.text = "All players have joined the room";
             loadingScreen.SetActive(true);
-            spawnMan.GetComponent<SpawnManScript>().AssignSpawnPoints();
+            GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().AssignSpawnPoints();
             PhotonNetwork.LoadLevel("Multi");
             loadedLevel = true;
         }

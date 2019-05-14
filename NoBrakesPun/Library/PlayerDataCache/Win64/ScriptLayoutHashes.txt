@@ -34,8 +34,8 @@ ee1dba1a186ac062d564e9eb73a1c56f Assembly-CSharp.dll:Photon.Chat.UtilityScripts.
 ee1dba1a186ac062d564e9eb73a1c56f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TextToggleIsOnTransition
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.ButtonInsideScrollList
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CullingHandler
-4b5ff01627583163d7bd71e59592184b Assembly-CSharp.dll:.WaitingForOthers
-91b63c8f8f366670a3fc6db852469f10 Assembly-CSharp.dll:.GameMan
+89f956eaac5ae34dcdd9e1c6076d9893 Assembly-CSharp.dll:.WaitingForOthers
+8d58011e01cd54233bc384840add19e9 Assembly-CSharp.dll:.GameMan
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button

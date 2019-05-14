@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Com.MyCompany.MyGame;
 using UnityEngine;
+using Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -12,7 +13,7 @@ using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 using Random = System.Random;
 
-public class GameMan : MonoBehaviourPun, IPunObservable
+public class GameMan : MonoBehaviour, IPunObservable
 {
     public GameObject loadingScreen;
     private GameObject localPlayerInstance;
@@ -20,22 +21,34 @@ public class GameMan : MonoBehaviourPun, IPunObservable
     public GameObject bg;
     public GameObject timerGo;
     private TextMeshProUGUI timer;
+    public GameObject endScreen;
+    public TextMeshProUGUI winner;
+
+    private bool timeSet;
+    private float timeOffset;
     
     private Restaurant[] restaurants = new Restaurant[37];
-    
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
-    
+
     private void Start()
     {
+        endScreen.SetActive(false);
         timer = timerGo.GetComponent<TextMeshProUGUI>();
         loadingScreen.SetActive(true);
         if (gameTime == 0)
-            gameTime = GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().gameTime * 60;
+            gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime * 60;
         if (localPlayerInstance == null)
         {
-            localPlayerInstance = PhotonNetwork.Instantiate("Rider", new Vector3(0, 0, 0), Quaternion.identity);
+            localPlayerInstance = PhotonNetwork.Instantiate("ZePlayer", new Vector3(0, 0, 0), Quaternion.identity);    
             localPlayerInstance.name = PhotonNetwork.NickName;
             localPlayerInstance.AddComponent<CameraWork>();
+        }
+
+        if (gameTime == 0)
+        {
+            timeSet = false;
+            timeOffset = 0f;
         }
 
         restaurants = GameObject.Find("Orders").GetComponentsInChildren<Restaurant>();
@@ -51,11 +64,27 @@ public class GameMan : MonoBehaviourPun, IPunObservable
 
     private void GameOver()
     {
-        Debug.Log("GameOver");
+        endScreen.SetActive(true);
+        winner.text = GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().GetWinner();
     }
 
     private void Update()
     {
+        if (!timeSet)
+        {
+            gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime * 60;
+            if (gameTime != 0)
+            {
+                timeSet = true;
+                gameTime -= timeOffset;
+            }
+            else
+            {
+                timeOffset += Time.deltaTime;
+                return;
+            }
+                
+        }
         gameTime -= Time.deltaTime;
         if (gameTime <= 0f)
             GameOver();

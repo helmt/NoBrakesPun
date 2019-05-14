@@ -111,7 +111,7 @@ public class EnterGame : MonoBehaviourPunCallbacks
                 statusText.text = "Game cannot last more than 3 hours";
                 return;
             }
-            GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().gameTime = gameTime;
+            GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime = gameTime;
         }
         else
         {
@@ -136,6 +136,15 @@ public class EnterGame : MonoBehaviourPunCallbacks
         {
             statusText.text = "Please enter a username with at most 16 characters";
             return;
+        }
+
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player.NickName == userName.text)
+            {
+                statusText.text = "Username already taken.";
+                return;
+            }
         }
 
         statusText.text = "Joined lobby as " + userName.text;

@@ -22,14 +22,17 @@ public class PauseMenu : MonoBehaviourPun
     private void Start()
     {
         pauseUI.SetActive(false);
-        _bikeController = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<BikeController>();
-        _bikeController.gamePaused = false;
         leaderBoardUI = GameObject.FindWithTag("LeaderBoard");
     }
 
 
     private void Update()
     {
+        if (!_bikeController)
+        {
+            _bikeController = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<BikeController>();
+            _bikeController.gamePaused = false;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseUI.SetActive(!pauseUI.activeSelf);

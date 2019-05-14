@@ -7,7 +7,7 @@ using UnityEngine;
 public class LeaderBoard : MonoBehaviourPun, IPunObservable
 {
     private Photon.Realtime.Player[] _players;
-    private static LeaderBoardElement[] scoreboard;
+    private LeaderBoardElement[] scoreboard;
     private int playerCount;
 
     public List<TextMeshProUGUI> nicknames;
@@ -26,14 +26,13 @@ public class LeaderBoard : MonoBehaviourPun, IPunObservable
         UpdateDisplay();
     }
 
-    private int FindIndex(string nickname)
+    public int FindIndex(string nickname)
     {
         for (int i = 0; i < playerCount; i++)
             if (scoreboard[i].nickname == nickname) return i;
         return -1;
     }
-
-    [PunRPC]
+    
     public void RankingUpdate(string nick, int score)
     {
         int i = FindIndex(nick);
@@ -49,10 +48,13 @@ public class LeaderBoard : MonoBehaviourPun, IPunObservable
         UpdateDisplay();
     }
 
+    public string GetWinner() => scoreboard[0].nickname;
+
     public void UpdateDisplay()
     {
         for (int i = 0; i < playerCount; i++)
         {
+            nicknames[i].color = scoreboard[i].nickname == PhotonNetwork.NickName ? Color.cyan : Color.white;
             nicknames[i].text = scoreboard[i].nickname;
             scores[i].text = scoreboard[i].score + " $";
         }

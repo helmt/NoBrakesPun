@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 5115727772010135831}
   - component: {fileID: 9148355136698809645}
   - component: {fileID: 7600666589004157631}
+  - component: {fileID: 1271658652203452606}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -240,7 +241,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 7600666589004157631}
+  - {fileID: 1271658652203452606}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
@@ -260,6 +261,23 @@ MonoBehaviour:
   gameTime: 0
   bg: {fileID: 0}
   timerGo: {fileID: 0}
+  endScreen: {fileID: 0}
+  winner: {fileID: 0}
+--- !u!114 &1271658652203452606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635771435190418103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &5224611859014120677
 GameObject:
   m_ObjectHideFlags: 0
