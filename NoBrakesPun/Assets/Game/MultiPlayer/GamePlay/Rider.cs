@@ -10,10 +10,11 @@ using Random = System.Random;
 
 public class Rider : MonoBehaviourPun, IPunObservable
 {
+    // public static GameObject localPlayerInstance;
+    
     public Transform meshTransform; // Actual position
     
-    public GameObject spawnParent;
-    public static GameObject localPlayerInstance;
+    private GameObject spawnParent;
     public Renderer meshRender;
     public SpriteRenderer iconRender;
     private GameObject minimapCam;
@@ -37,21 +38,43 @@ public class Rider : MonoBehaviourPun, IPunObservable
 
     private float missionStatusTimer;
     private bool missionStatusCountdown;
+    private GameObject leaderBoard;
+    private GameObject pointer;
+    private TextMeshProUGUI pointerText;
+    private float distance;
+    private Vector3 verticalOffset = new Vector3(0, 8f, 0);
+
+    private int smoothingDelay = 5;
+    private Vector3 correctPlayerPos = Vector3.zero;
+    private Quaternion correctPlayerRot = Quaternion.identity;
+    
     
     void Awake()
     {
         if (photonView.IsMine)
         {
-            localPlayerInstance = this.gameObject;
-            localPlayerInstance.name = PhotonNetwork.NickName;
+            //localPlayerInstance = this.gameObject;
+            //localPlayerInstance.name = PhotonNetwork.NickName;
             minimapCam = GameObject.Find("MinimapCam");
             minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);
         }
         else
             gameObject.GetComponent<AudioListener>().enabled = false;
     }
-    
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            correctPlayerPos = (Vector3) stream.ReceiveNext();
+            correctPlayerRot = (Quaternion) stream.ReceiveNext();
+        }
+    }
 
     public void Prompt()
     {
@@ -85,6 +108,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         _dropZone = null;
         packMan.LosePack();
         musicMan.SetNoJobTrack();
+        pointer.GetComponent<RectTransform>().anchoredPosition = new Vector2(-100, -100);
     }
     
     public void CashIn()
@@ -95,6 +119,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         missionStatus.text = "+ " + job.price + " $";
         missionStatusCountdown = true;
         EndJob();
+        leaderBoard.GetComponent<LeaderBoard>().photonView.RPC("RankingUpdate", RpcTarget.All, PhotonNetwork.NickName, cash);
     }
 
     public void FailMission()
@@ -109,6 +134,8 @@ public class Rider : MonoBehaviourPun, IPunObservable
     {
         if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
 
+        spawnParent = GameObject.Find("GameManager");
+        pointer = GameObject.Find("Pointer");
         promptText = GameObject.Find("Prompt").GetComponent<TextMeshProUGUI>();
         missionTimeUI = GameObject.Find("MissionTimeText").GetComponent<TextMeshProUGUI>();
         mainTimeUI = GameObject.Find("MainTimerText").GetComponent<TextMeshProUGUI>();
@@ -116,7 +143,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         missionStatus = GameObject.Find("MissionStatus").GetComponent<TextMeshProUGUI>();
         
         int spawn = GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().spawns[PhotonNetwork.NickName];
-        localPlayerInstance.transform.position = spawnParent.transform.GetChild(spawn).position;
+        transform.position = spawnParent.transform.GetChild(spawn).position;
         SpawnPointScript spawnMats = spawnParent.transform.GetChild(spawn).gameObject.GetComponent<SpawnPointScript>();
 
         // Set frame, shirt and helmet mat + icon
@@ -145,17 +172,57 @@ public class Rider : MonoBehaviourPun, IPunObservable
         missionStatusCountdown = false;
         missionStatus.text = "";
         EndPrompt();
+
+        leaderBoard = PhotonNetwork
+            .Instantiate("LeaderBoard", new Vector3(0f, 0f, 0f), new Quaternion(0f, 0f, 0f, 0f));
+        leaderBoard.transform.SetParent(GameObject.Find("HUD").transform);
+        leaderBoard.GetComponent<RectTransform>().anchoredPosition = new Vector2(210, -80);
+
+        pointer.GetComponent<RectTransform>().anchoredPosition = new Vector2(-100, -100);
+        pointerText = pointer.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
     {
-        if (hasJob)
+        if (!photonView.IsMine)
+        {
+            transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * smoothingDelay);
+            transform.rotation = Quaternion.Lerp(transform.rotation, correctPlayerRot, Time.deltaTime * smoothingDelay);
+        }
+        else if (hasJob)
         {
             missionTime -= Time.deltaTime;
             missionTimeUI.text = (int) missionTime / 60 + "' " + (int) missionTime % 60 + "''";
+            distance = Vector3.Distance(transform.position, _dropZone.transform.position);
+            
+            // Pointer position on screen
+            float minX = pointer.GetComponentInChildren<Image>().GetPixelAdjustedRect().width / 2;
+            float maxX = Screen.width - minX;
+            
+            float minY = pointer.GetComponentInChildren<Image>().GetPixelAdjustedRect().height / 2;
+            float maxY = Screen.height - minY;
+            
+            Vector2 pos = Camera.main.WorldToScreenPoint(job.destination.transform.position + verticalOffset);
+
+            if (Vector3.Dot((job.destination.transform.position - Camera.main.transform.position),
+                    Camera.main.transform.forward) < 0)
+            {
+                // target is behind player
+                if (pos.x < Screen.width / 2)
+                    pos.x = maxX;
+                else
+                    pos.x = minX;
+            }
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+            pointer.transform.position = pos;
+                
+            pointerText.text = (int) distance + " m";
+            
             if (missionTime <= 0f)
                 FailMission();
-            else if (Vector3.Distance(transform.position, _dropZone.transform.position) < 20f)
+            else if (distance < 20f)
                 CashIn();
             
         }

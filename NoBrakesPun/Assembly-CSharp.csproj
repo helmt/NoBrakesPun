@@ -87,6 +87,7 @@
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\GameMan.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\Job.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\LeaderBoard.cs" />
+    <Compile Include="Assets\Game\MultiPlayer\GamePlay\LeaderBoardElement.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\LookAtPlayer.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\MainTimer.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\MusicManager.cs" />

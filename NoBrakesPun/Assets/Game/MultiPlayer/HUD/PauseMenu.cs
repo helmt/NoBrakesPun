@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviourPun
 {
     public GameObject pauseUI;
-    public GameObject leaderBoardUI;
+    private GameObject leaderBoardUI;
     private BikeController _bikeController;
+    private bool leaderBoardFound;
     
     public void ExitToDesktop() => Application.Quit();
 
@@ -21,8 +22,9 @@ public class PauseMenu : MonoBehaviourPun
     private void Start()
     {
         pauseUI.SetActive(false);
-        _bikeController = Rider.localPlayerInstance.GetComponent<BikeController>();
+        _bikeController = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<BikeController>();
         _bikeController.gamePaused = false;
+        leaderBoardUI = GameObject.FindWithTag("LeaderBoard");
     }
 
 
@@ -34,7 +36,18 @@ public class PauseMenu : MonoBehaviourPun
             _bikeController.gamePaused = !_bikeController.gamePaused;
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-            leaderBoardUI.SetActive(!leaderBoardUI.activeSelf);
+        if (leaderBoardFound)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+                leaderBoardUI.SetActive(!leaderBoardUI.activeSelf);
+        }
+        else
+        {
+            if (GameObject.FindWithTag("LeaderBoard"))
+            {
+                leaderBoardUI = GameObject.FindWithTag("LeaderBoard");
+                leaderBoardFound = true;
+            }
+        }
     }
 }

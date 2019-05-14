@@ -92,6 +92,33 @@ public class EnterGame : MonoBehaviourPunCallbacks
             return;
         }
 
+        if (createTime.text.Length == 0)
+        {
+            statusText.text = "Please enter a valid game duration";
+            return;
+        }
+
+        if (int.TryParse(createTime.text, out int gameTime))
+        {
+            if (gameTime < 1)
+            {
+                statusText.text = "Game cannot last less than 1 minute";
+                return;
+            }
+
+            if (gameTime > 180)
+            {
+                statusText.text = "Game cannot last more than 3 hours";
+                return;
+            }
+            GameObject.Find("SpawnMan").GetComponent<SpawnManScript>().gameTime = gameTime;
+        }
+        else
+        {
+            statusText.text = "Please enter a valid game time";
+            return;
+        }
+
         roomOptions.PublishUserId = true;
         PhotonNetwork.CreateRoom(createName.text, roomOptions);
     }

@@ -8,6 +8,7 @@ TagManager:
   - minimapCam
   - Track
   - NoTrack
+  - LeaderBoard
   layers:
   - Default
   - TransparentFX

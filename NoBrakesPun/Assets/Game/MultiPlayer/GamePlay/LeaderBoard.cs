@@ -1,38 +1,60 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Photon.Pun;
+using TMPro;
 using UnityEngine;
 
-public class LeaderBoard : MonoBehaviour
-{/*
-    private List<Player> _players;
+public class LeaderBoard : MonoBehaviourPun, IPunObservable
+{
+    private Photon.Realtime.Player[] _players;
+    private LeaderBoardElement[] scoreboard;
+    private int playerCount;
 
-    public void Player()
+    public List<TextMeshProUGUI> nicknames;
+    public List<TextMeshProUGUI> scores;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
+    
+    private void Start()
     {
-        _players = new List<Player>();
+        _players = PhotonNetwork.PlayerList;
+        playerCount = _players.Length;
+        scoreboard = new LeaderBoardElement[playerCount];
+        int i = 0;
+        foreach (Photon.Realtime.Player player in _players)
+            scoreboard[i++] = new LeaderBoardElement(player.NickName, 0);
+        UpdateDisplay();
     }
 
-    public void RankingUpdate(List<Player> _players)
+    private int FindIndex(string nickname)
     {
-        int n = _players.Count;
-        for (int i = 0; i < n - 1; i++)
+        for (int i = 0; i < playerCount; i++)
+            if (scoreboard[i].nickname == nickname) return i;
+        return -1;
+    }
+
+    [PunRPC]
+    public void RankingUpdate(string nick, int score)
+    {
+        int i = FindIndex(nick);
+        scoreboard[i].score = score;
+        while (i > 0 && scoreboard[i].score > scoreboard[i - 1].score)
         {
-            for (int j = i+1 ; j < n - i - 1; j++)
-            {
-                if (_players[j].Getscore() < _players[i + 1].Getscore())
-                {
-                    Player tmp = _players[j];
-                    _players[j+1] = tmp;
-                    _players[j] = _players[j + 1];
-                }
-            }
+            LeaderBoardElement tmp = scoreboard[i];
+            scoreboard[i] = scoreboard[i - 1];
+            scoreboard[i - 1] = tmp;
+            i--;
+        }
+
+        UpdateDisplay();
+    }
+
+    public void UpdateDisplay()
+    {
+        for (int i = 0; i < playerCount; i++)
+        {
+            nicknames[i].text = scoreboard[i].nickname;
+            scores[i].text = scoreboard[i].score + " $";
         }
     }
-
-    public void Display()
-    {
-        foreach (var p in _players)
-        {
-            p.Print();
-        }
-    }
-    */
 }

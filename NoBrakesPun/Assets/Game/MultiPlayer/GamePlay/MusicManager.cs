@@ -9,8 +9,6 @@ public class MusicManager : MonoBehaviour
     public AudioSource jobTrack;
     public AudioSource noJobTrack;
 
-    private int track;
-
     private float volume = 1f;
     
     public Transform cars;
@@ -19,13 +17,12 @@ public class MusicManager : MonoBehaviour
     private void Start()
     {
         SetNoJobTrack();
-        track = 1;
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume(float vol)
     {
-        this.volume = volume;
-        if (track == 0)
+        volume = vol;
+        if (GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<Rider>().hasJob)
             GameObject.FindWithTag("Track").GetComponent<AudioSource>().volume = volume;
         else
             GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().volume = volume;
@@ -33,6 +30,7 @@ public class MusicManager : MonoBehaviour
     
     public void SetJobTrack()
     {
+        volume = GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().volume;
         GameObject.FindWithTag("Track").GetComponent<AudioSource>().volume = volume;
         GameObject.FindWithTag("Track").GetComponent<AudioSource>().time = 0f;
         GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().volume = 0f;
@@ -40,9 +38,10 @@ public class MusicManager : MonoBehaviour
 
     public void SetNoJobTrack()
     {
-        GameObject.FindWithTag("Track").GetComponent<AudioSource>().volume = 0f;
-        GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().time = 0f;
+        volume = GameObject.FindWithTag("Track").GetComponent<AudioSource>().volume;
         GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().volume = volume;
+        GameObject.FindWithTag("NoTrack").GetComponent<AudioSource>().time = 0f;
+        GameObject.FindWithTag("Track").GetComponent<AudioSource>().volume = 0f;
     }
 
     public void SetListenerVolume(float volume)

@@ -11,7 +11,8 @@ namespace Com.MyCompany.MyGame
     {
         #region Private Fields
 
-
+        private bool firstPerson = false;
+        
         [Tooltip("The distance in the local x-z plane to the target")]
         [SerializeField]
         private float distance = 12f;
@@ -175,6 +176,30 @@ namespace Com.MyCompany.MyGame
             cameraTransform.rotation = yRotation * Quaternion.LookRotation( relativeOffset );
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                if (!firstPerson)
+                {
+                    Camera.main.fieldOfView = 60f;
+                    Camera.main.nearClipPlane = 0.1f;
+                    distance = -0.1f;
+                    height = 0;
+                    centerOffset = new Vector3(0, 4.7f, 0f);
+                    firstPerson = true;
+                }
+                else
+                {
+                    Camera.main.fieldOfView = 90f;
+                    Camera.main.nearClipPlane = 1f;
+                    distance = 12f;
+                    height = 3;
+                    centerOffset = new Vector3(0, 8f, 0f);
+                    firstPerson = false;
+                }
+            }
+        }
 
         #endregion
     }

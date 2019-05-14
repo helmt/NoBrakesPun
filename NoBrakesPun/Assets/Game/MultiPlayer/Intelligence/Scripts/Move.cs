@@ -21,6 +21,7 @@ public class Move : MonoBehaviour
     private float reachDistance = 2f;
     public float rotationSpeed = 8f;
     private float distance;
+    private Quaternion rotation;
 
     private Vector3 currentPosition;
     private Vector3 objectivePosition;
@@ -70,18 +71,15 @@ public class Move : MonoBehaviour
             distance = Vector3.Distance(objectivePosition, currentPosition);
 
             // Speed
-            speed = distance;
-            if (speed < minSpeed)
-                speed = minSpeed;
-            else if (speed > maxSpeed)
-                speed = maxSpeed;
+            speed = Mathf.Clamp(distance, minSpeed, maxSpeed);
             realSpeed = speed;
 
             // Sensors
             RaycastHit hit;
-            Vector3 sensorStartPos = transform.position - transform.right * sensorX + transform.forward * sensorZ;
+            Vector3 baseSensorStartPos = transform.position + transform.forward * sensorZ;
 
             // front sensor
+            Vector3 sensorStartPos = baseSensorStartPos - transform.right * sensorX;
             if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength) &&
                 hit.transform.CompareTag("vehicle"))
             {
@@ -90,22 +88,13 @@ public class Move : MonoBehaviour
             }
 
             // right sensor
-            sensorStartPos = transform.position + transform.forward * sensorZ;
-            if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength) && hit.transform.CompareTag("vehicle"))
-            {
-                realSpeed = Math.Min(Vector3.Distance(currentPosition, hit.point), realSpeed);
-                realSpeed = realSpeed < sideOffset ? 0 : realSpeed;
-            }
-
-            // left sensor
-            sensorStartPos = transform.position - 2 * transform.right * sensorX + transform.forward * sensorZ;
+            sensorStartPos = baseSensorStartPos;
             if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength) && hit.transform.CompareTag("vehicle"))
             {
                 realSpeed = Math.Min(Vector3.Distance(currentPosition, hit.point), realSpeed);
                 realSpeed = realSpeed < sideOffset ? 0 : realSpeed;
             }
             // far right sensor
-            sensorStartPos = transform.position + transform.forward * sensorZ;
             if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(farSensorAngle, transform.up) * transform.forward,
                     out hit, sensorLength) && hit.transform.CompareTag("vehicle"))
             {
@@ -113,8 +102,15 @@ public class Move : MonoBehaviour
                 realSpeed = realSpeed < farSideOffset ? 0 : realSpeed;
             }
 
+            // left sensor
+            sensorStartPos = baseSensorStartPos - 2 * transform.right * sensorX;
+            if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength) && hit.transform.CompareTag("vehicle"))
+            {
+                realSpeed = Math.Min(Vector3.Distance(currentPosition, hit.point), realSpeed);
+                realSpeed = realSpeed < sideOffset ? 0 : realSpeed;
+            }
+            
             // far left sensor
-            sensorStartPos = transform.position - 2 * transform.right * sensorX + transform.forward * sensorZ;
             if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(-farSensorAngle, transform.up) * transform.forward,
                     out hit, sensorLength) && hit.transform.CompareTag("vehicle"))
             {
@@ -123,7 +119,8 @@ public class Move : MonoBehaviour
             }
 
             gameObject.transform.position = Vector3.MoveTowards(GameObjectPosition(this), objectivePosition, Time.deltaTime * realSpeed);
-            Quaternion rotation = Quaternion.LookRotation(objectivePosition - GameObjectPosition(this));
+            if (objectivePosition - GameObjectPosition(this) != Vector3.zero)
+                rotation = Quaternion.LookRotation(objectivePosition - GameObjectPosition(this));
             transform.rotation = Quaternion.Slerp(GameObjectRotation(this), rotation, Time.deltaTime * rotationSpeed);
 
             if (distance <= reachDistance)

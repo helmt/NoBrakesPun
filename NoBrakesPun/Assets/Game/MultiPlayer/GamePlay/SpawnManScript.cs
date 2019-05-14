@@ -11,6 +11,8 @@ public class SpawnManScript : MonoBehaviourPun
     public bool[] occupied = new bool[6]; 
     System.Random rng = new System.Random();
 
+    public int gameTime;
+
     private void Awake() => DontDestroyOnLoad(gameObject);
 
     private void Start() => spawns = new Dictionary<string, int>();

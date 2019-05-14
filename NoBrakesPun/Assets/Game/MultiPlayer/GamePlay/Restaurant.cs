@@ -23,7 +23,6 @@ public class Restaurant : MonoBehaviour
     public TextMeshProUGUI distanceUI;
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI cashUI;
-    private bool playerInRange;
     
     public int type; // 0 for burger, 1 for sushi, 2 for greek
     private GameObject destination;
@@ -34,7 +33,7 @@ public class Restaurant : MonoBehaviour
     public void GenerateJob()
     {
         destinationIndex = rng.Next(dropzones);
-        GameObject destination = dropZoneParent.transform.GetChild(rng.Next(dropzones)).gameObject;
+        GameObject destination = dropZoneParent.transform.GetChild(destinationIndex).gameObject;
         int distance = (int) Vector3.Distance(destination.transform.position, transform.position);
         int reward = type == 2 ? 15 : (type == 1 ? 10 : 5); // Minimum pay
         reward += distance / 100;
@@ -55,16 +54,20 @@ public class Restaurant : MonoBehaviour
         coolDown = 60f;
         onCoolDown = false;
         dropzones = dropZoneParent.transform.childCount;
-        playerInRange = false;
-        player = Rider.localPlayerInstance.transform;
-        rider = player.GetComponent<Rider>();
         prompted = false;
         newOrder = false;
-        GenerateJob(); // Called to avoid errors but value will be overwritten
     }
 
     private void Update()
     {
+        if (!player)
+        {
+            player = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().transform;
+            rider = player.GetComponent<Rider>();
+            if (rider)
+                GenerateJob(); // Called to avoid errors but value will be overwritten
+            return;
+        }
         if (onCoolDown)
         {
             coolDown -= Time.deltaTime;
@@ -83,7 +86,10 @@ public class Restaurant : MonoBehaviour
         if (!newOrder && CheckForPlayer(200f))
         {
             GenerateJob();
-            newOrder = true;
+            if (job != null)
+                newOrder = true;
+            else
+                return;
         }
         
         if (CheckForPlayer(20f))
@@ -96,8 +102,8 @@ public class Restaurant : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 rider.StartJob(job);
-                newOrder = false;
                 onCoolDown = true;
+                newOrder = false;
                 foreach (GameObject ui in panel)
                 {
                     ui.SetActive(false);

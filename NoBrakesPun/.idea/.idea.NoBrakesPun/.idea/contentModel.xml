@@ -61,6 +61,7 @@
               <e p="GameMan.cs" t="Include" />
               <e p="Job.cs" t="Include" />
               <e p="LeaderBoard.cs" t="Include" />
+              <e p="LeaderBoardElement.cs" t="Include" />
               <e p="LookAtPlayer.cs" t="Include" />
               <e p="MainTimer.cs" t="Include" />
               <e p="MusicManager.cs" t="Include" />

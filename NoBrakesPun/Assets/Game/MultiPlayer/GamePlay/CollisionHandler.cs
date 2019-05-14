@@ -7,7 +7,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rider.hasJob && collision.relativeVelocity.magnitude > 50)
+        if (rider.hasJob && collision.relativeVelocity.magnitude > 45)
         {
             rider.FailMission();
         }
