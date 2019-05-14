@@ -35,7 +35,7 @@ ee1dba1a186ac062d564e9eb73a1c56f PhotonUnityNetworking.Utilities.dll:Photon.Pun.
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.ButtonInsideScrollList
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CullingHandler
 4b5ff01627583163d7bd71e59592184b Assembly-CSharp.dll:.WaitingForOthers
-284ccda38a99327e52fb201e881ad9a6 Assembly-CSharp.dll:.GameMan
+91b63c8f8f366670a3fc6db852469f10 Assembly-CSharp.dll:.GameMan
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -155,12 +155,12 @@ e7aa62e1f291228958626e122c23c8f0 PhotonUnityNetworking.Utilities.dll:Photon.Pun.
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 44f6defaa1891b2a5eef2421f0b22ac5 Assembly-CSharp.dll:.PhotonLobby
 9dbbe36cd59fdeadce2d08da8faaf6f3 Assembly-CSharp.dll:.SpawnPointScript
-e6bc090a27c2e35893955602c28aad75 Assembly-CSharp.dll:.SpawnManScript
+739d2cbbc3e22900516e9562b958f9cb Assembly-CSharp.dll:.SpawnManScript
 3a628cbdf2e75e5ced5b8ccd7db55a78 Assembly-CSharp.dll:.BikeControllerS
 a8b6c919b2049fcc280823488144371f Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.Joystick
 764310837a40c25e0b7a3be858025d63 Assembly-CSharp.dll:.PauseMenu
 4bd1cc3c85989d2213a9a8fd9d09e63f Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar
-d7b8f59cf486855f328e89857bb016bc Assembly-CSharp.dll:.Rider
+d4d3f43426d1bd0b3edc8f8f67a7e92c Assembly-CSharp.dll:.Rider
 fdd7177da17032ba94d98037cc97bb49 Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.AxisTouchButton
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Photon.Chat.UtilityScripts.EventSystemSpawner
