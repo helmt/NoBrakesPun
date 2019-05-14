@@ -7,7 +7,7 @@ using UnityEngine;
 public class LeaderBoard : MonoBehaviourPun, IPunObservable
 {
     private Photon.Realtime.Player[] _players;
-    private LeaderBoardElement[] scoreboard;
+    private static LeaderBoardElement[] scoreboard;
     private int playerCount;
 
     public List<TextMeshProUGUI> nicknames;

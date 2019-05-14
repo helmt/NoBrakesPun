@@ -47,6 +47,8 @@ public class Rider : MonoBehaviourPun, IPunObservable
     private int smoothingDelay = 5;
     private Vector3 correctPlayerPos = Vector3.zero;
     private Quaternion correctPlayerRot = Quaternion.identity;
+
+    private bool firstJob;
     
     
     void Awake()
@@ -96,6 +98,7 @@ public class Rider : MonoBehaviourPun, IPunObservable
         packMan.MakePack();
         musicMan.SetJobTrack();
         _dropZone.StartJob();
+        GameObject.Find("GameManager").GetComponent<GameMan>().newJobs();
     }
 
     private void EndJob()
@@ -180,6 +183,8 @@ public class Rider : MonoBehaviourPun, IPunObservable
 
         pointer.GetComponent<RectTransform>().anchoredPosition = new Vector2(-100, -100);
         pointerText = pointer.GetComponentInChildren<TextMeshProUGUI>();
+
+        firstJob = true;
     }
 
     private void Update()

@@ -27,7 +27,6 @@ public class Restaurant : MonoBehaviour
     public int type; // 0 for burger, 1 for sushi, 2 for greek
     private GameObject destination;
     private Job job;
-    private bool newOrder;
     private bool prompted;
 
     public void GenerateJob()
@@ -55,7 +54,6 @@ public class Restaurant : MonoBehaviour
         onCoolDown = false;
         dropzones = dropZoneParent.transform.childCount;
         prompted = false;
-        newOrder = false;
     }
 
     private void Update()
@@ -82,15 +80,6 @@ public class Restaurant : MonoBehaviour
             }
             return;
         }
-
-        if (!newOrder && CheckForPlayer(200f))
-        {
-            GenerateJob();
-            if (job != null)
-                newOrder = true;
-            else
-                return;
-        }
         
         if (CheckForPlayer(20f))
         {
@@ -103,7 +92,7 @@ public class Restaurant : MonoBehaviour
             {
                 rider.StartJob(job);
                 onCoolDown = true;
-                newOrder = false;
+                GenerateJob();
                 foreach (GameObject ui in panel)
                 {
                     ui.SetActive(false);

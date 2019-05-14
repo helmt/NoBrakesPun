@@ -21,6 +21,8 @@ public class GameMan : MonoBehaviourPun, IPunObservable
     public GameObject timerGo;
     private TextMeshProUGUI timer;
     
+    private Restaurant[] restaurants = new Restaurant[37];
+    
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
     
     private void Start()
@@ -34,6 +36,16 @@ public class GameMan : MonoBehaviourPun, IPunObservable
             localPlayerInstance = PhotonNetwork.Instantiate("Rider", new Vector3(0, 0, 0), Quaternion.identity);
             localPlayerInstance.name = PhotonNetwork.NickName;
             localPlayerInstance.AddComponent<CameraWork>();
+        }
+
+        restaurants = GameObject.Find("Orders").GetComponentsInChildren<Restaurant>();
+    }
+
+    public void newJobs()
+    {
+        foreach (Restaurant rest in restaurants)
+        {
+            rest.GenerateJob();
         }
     }
 
