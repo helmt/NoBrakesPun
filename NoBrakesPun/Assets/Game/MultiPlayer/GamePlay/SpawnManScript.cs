@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using Photon.Pun;
@@ -11,7 +12,7 @@ public class SpawnManScript : MonoBehaviourPun, IPunObservable
     public bool[] occupied = new bool[6]; 
     System.Random rng = new System.Random();
 
-    public int gameTime;
+    public float gameTime;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -23,7 +24,7 @@ public class SpawnManScript : MonoBehaviourPun, IPunObservable
         else
         {
             occupied = (bool[]) stream.ReceiveNext();
-            gameTime = (int) stream.ReceiveNext();
+            gameTime = (float) stream.ReceiveNext();
         }
     }
 

@@ -11,7 +11,7 @@ public class FollowPlayerOrientation : MonoBehaviour
     {
         if (!player)
         {
-            player = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().transform;
+            player = GameObject.FindWithTag("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().transform;
             return;
         }
         transform.rotation = Quaternion.Euler(90, player.eulerAngles.y, 0);

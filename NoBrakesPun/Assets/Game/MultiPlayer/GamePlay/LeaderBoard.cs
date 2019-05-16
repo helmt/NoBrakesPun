@@ -33,9 +33,11 @@ public class LeaderBoard : MonoBehaviourPun, IPunObservable
         return -1;
     }
     
+    [PunRPC]
     public void RankingUpdate(string nick, int score)
     {
         int i = FindIndex(nick);
+        if (i == -1) return;
         scoreboard[i].score = score;
         while (i > 0 && scoreboard[i].score > scoreboard[i - 1].score)
         {

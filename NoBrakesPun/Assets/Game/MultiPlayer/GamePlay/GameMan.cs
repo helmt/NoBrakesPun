@@ -1,43 +1,50 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Com.MyCompany.MyGame;
 using UnityEngine;
-using Photon;
 using Photon.Pun;
-using Photon.Realtime;
 using TMPro;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.Experimental.UIElements.StyleSheets;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
-using Random = System.Random;
 
-public class GameMan : MonoBehaviour, IPunObservable
+public class GameMan : MonoBehaviourPun, IPunObservable
 {
     public GameObject loadingScreen;
     private GameObject localPlayerInstance;
     public float gameTime;
+    public float correctGameTime;
     public GameObject bg;
     public GameObject timerGo;
     private TextMeshProUGUI timer;
     public GameObject endScreen;
     public TextMeshProUGUI winner;
-
     private bool timeSet;
-    private float timeOffset;
+    private PhotonView _photonView;
+    private bool isMasterClient;
     
     private Restaurant[] restaurants = new Restaurant[37];
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){}
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(gameTime);
+        }
+        else
+        {
+            correctGameTime = (float) stream.ReceiveNext();
+        }
+    }
 
     private void Start()
     {
+        gameTime = 0f;
+        correctGameTime = 0f;
         endScreen.SetActive(false);
         timer = timerGo.GetComponent<TextMeshProUGUI>();
         loadingScreen.SetActive(true);
-        if (gameTime == 0)
-            gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime * 60;
+        timeSet = false;
+        gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime;
+        timeSet = gameTime == 0 ? false : true;
+
         if (localPlayerInstance == null)
         {
             localPlayerInstance = PhotonNetwork.Instantiate("ZePlayer", new Vector3(0, 0, 0), Quaternion.identity);    
@@ -45,20 +52,31 @@ public class GameMan : MonoBehaviour, IPunObservable
             localPlayerInstance.AddComponent<CameraWork>();
         }
 
-        if (gameTime == 0)
+        if (photonView.IsMine)
         {
-            timeSet = false;
-            timeOffset = 0f;
+            GameObject restaurantParent = PhotonNetwork.Instantiate("Orders", new Vector3(-6542.938f, 489.8291f, -4550.688f), Quaternion.identity);
+            restaurants = restaurantParent.GetComponentsInChildren<Restaurant>();
         }
 
-        restaurants = GameObject.Find("Orders").GetComponentsInChildren<Restaurant>();
+        if (PhotonNetwork.IsMasterClient && timeSet)
+        {
+            photonView.RPC("SetGameTime", RpcTarget.Others, gameTime);
+        }
+    }
+
+    [PunRPC]
+    public void SetGameTime(float time)
+    {
+        gameTime = time;
+        timeSet = true;
     }
 
     public void newJobs()
     {
         foreach (Restaurant rest in restaurants)
         {
-            rest.GenerateJob();
+            if (rest)
+                rest.GenerateJob();
         }
     }
 
@@ -70,31 +88,48 @@ public class GameMan : MonoBehaviour, IPunObservable
 
     private void Update()
     {
+        isMasterClient = PhotonNetwork.IsMasterClient;
         if (!timeSet)
         {
-            gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime * 60;
-            if (gameTime != 0)
+            if (isMasterClient)
             {
-                timeSet = true;
-                gameTime -= timeOffset;
+                gameTime = GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime;
+                if (gameTime != 0)
+                {
+                    timeSet = true;
+                    photonView.RPC("SetGameTime", RpcTarget.Others, gameTime);
+                }
             }
-            else
-            {
-                timeOffset += Time.deltaTime;
-                return;
-            }
-                
+            return;
         }
-        gameTime -= Time.deltaTime;
-        if (gameTime <= 0f)
+
+        if (isMasterClient)
+            gameTime -= Time.deltaTime;
+        else
+            gameTime = correctGameTime;
+        if (gameTime <= 0f && correctGameTime <= 0f)
             GameOver();
         else
         {
+            if (endScreen.activeSelf)
+            {
+                endScreen.SetActive(false);
+                foreach (GameObject leaderboard in GameObject.FindGameObjectsWithTag("LeaderBoard"))
+                {
+                    if (leaderboard.GetPhotonView().IsMine) Destroy(leaderboard);
+                }
+                GameObject.Find(PhotonNetwork.NickName).GetComponent<Rider>().leaderBoard = PhotonNetwork
+                    .Instantiate("LeaderBoard", new Vector3(0f, 0f, 0f), new Quaternion(0f, 0f, 0f, 0f));
+            }
+
             if (gameTime < 60)
-                bg.GetComponent<Image>().color = Color.red; 
-            timer.text = ((int) (gameTime / 60)).ToString();
-            timer.text += ":" + (int) (gameTime % 60);
-            timer.text += ":" + (int) (gameTime % 1 * 100);
+                bg.GetComponent<Image>().color = Color.red;
+            int hours = (int) gameTime / 3600;
+            int minutes = (int) gameTime % 3600 / 60;
+            int seconds = (int) gameTime % 60;
+
+            timer.text = hours + ":" + (minutes.ToString().Length == 1 ? "0" : "") + minutes + ":" +
+                         (seconds.ToString().Length == 1 ? "0" : "") + seconds;
         }
         
     }

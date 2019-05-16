@@ -33,5 +33,7 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RankingUpdate
+  - ChangeState
+  - SetGameTime
   DisableAutoOpenWizard: 1
   ShowSettings: 1

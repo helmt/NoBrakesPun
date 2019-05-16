@@ -31,40 +31,20 @@ public class Rider : MonoBehaviourPunCallbacks, IPunObservable
     private DropZone _dropZone;
     public float missionTime;
     private TextMeshProUGUI missionTimeUI;
-    private TextMeshProUGUI mainTimeUI;
     private TextMeshProUGUI cashUI;
     private TextMeshProUGUI missionStatus;
     private TextMeshProUGUI promptText;
 
     private float missionStatusTimer;
     private bool missionStatusCountdown;
-    private GameObject leaderBoard;
+    public GameObject leaderBoard;
     private GameObject pointer;
     private TextMeshProUGUI pointerText;
     private float distance;
     private Vector3 verticalOffset = new Vector3(0, 8f, 0);
-
-    private int smoothingDelay = 5;
-    private Vector3 correctPlayerPos = Vector3.zero;
-    private Quaternion correctPlayerRot = Quaternion.identity;
+    
     private string correctNick;
     private int correctCash;
-
-    private bool firstJob;
-    
-    
-    void Awake()
-    {
-        if (photonView.IsMine)
-        {
-            //localPlayerInstance = this.gameObject;
-            //localPlayerInstance.name = PhotonNetwork.NickName;
-            minimapCam = GameObject.Find("MinimapCam");
-            minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);
-        }
-        else if (gameObject.GetComponent<AudioListener>())
-            gameObject.GetComponent<AudioListener>().enabled = false;
-    }
 
     #region IPunObservable implementation
     
@@ -79,7 +59,8 @@ public class Rider : MonoBehaviourPunCallbacks, IPunObservable
         {
             correctNick = (string) stream.ReceiveNext();
             correctCash = (int) stream.ReceiveNext();
-            GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().RankingUpdate(correctNick, correctCash);
+            if (GameObject.FindWithTag("LeaderBoard"))
+                GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().RankingUpdate(correctNick, correctCash);
         }
     }
     
@@ -129,7 +110,10 @@ public class Rider : MonoBehaviourPunCallbacks, IPunObservable
         missionStatus.text = "+ " + job.price + " $";
         missionStatusCountdown = true;
         EndJob();
-        GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().RankingUpdate(PhotonNetwork.NickName, cash);
+        Debug.Log("Cashed in");
+        leaderBoard.GetComponent<LeaderBoard>().RankingUpdate(gameObject.name, cash);
+        GameObject.FindWithTag("LeaderBoard").GetComponent<LeaderBoard>().photonView
+            .RPC("RankingUpdate", RpcTarget.Others, gameObject.name, cash);
     }
 
     public void FailMission()
@@ -142,13 +126,20 @@ public class Rider : MonoBehaviourPunCallbacks, IPunObservable
     
     private void Start()
     {
-        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
-
-        spawnParent = GameObject.Find("GameManager");
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            if (gameObject.GetComponent<AudioListener>())
+                gameObject.GetComponent<AudioListener>().enabled = false;
+            return;
+        }
+        
+        minimapCam = GameObject.Find("MinimapCam");
+        minimapCam.GetComponent<Minimap>().Initiate(gameObject.transform);   
+        
+        spawnParent = GameObject.FindWithTag("GameManager");
         pointer = GameObject.Find("Pointer");
         promptText = GameObject.Find("Prompt").GetComponent<TextMeshProUGUI>();
         missionTimeUI = GameObject.Find("MissionTimeText").GetComponent<TextMeshProUGUI>();
-        mainTimeUI = GameObject.Find("MainTimerText").GetComponent<TextMeshProUGUI>();
         cashUI = GameObject.Find("CashText").GetComponent<TextMeshProUGUI>();
         missionStatus = GameObject.Find("MissionStatus").GetComponent<TextMeshProUGUI>();
         
@@ -190,18 +181,11 @@ public class Rider : MonoBehaviourPunCallbacks, IPunObservable
 
         pointer.GetComponent<RectTransform>().anchoredPosition = new Vector2(-100, -100);
         pointerText = pointer.GetComponentInChildren<TextMeshProUGUI>();
-
-        firstJob = true;
     }
 
     private void Update()
     {
-        if (!photonView.IsMine)
-        {
-            transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * smoothingDelay);
-            transform.rotation = Quaternion.Lerp(transform.rotation, correctPlayerRot, Time.deltaTime * smoothingDelay);
-        }
-        else if (hasJob)
+        if (photonView.IsMine && hasJob)
         {
             missionTime -= Time.deltaTime;
             missionTimeUI.text = (int) missionTime / 60 + "' " + (int) missionTime % 60 + "''";

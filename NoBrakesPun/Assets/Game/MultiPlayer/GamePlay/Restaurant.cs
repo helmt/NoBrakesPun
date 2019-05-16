@@ -29,6 +29,8 @@ public class Restaurant : MonoBehaviour
     private Job job;
     private bool prompted;
 
+    public bool state;
+
     public void GenerateJob()
     {
         destinationIndex = rng.Next(dropzones);
@@ -42,25 +44,38 @@ public class Restaurant : MonoBehaviour
         timeUI.text = missionTime / 60 + "' " + missionTime % 60 + "''";
         cashUI.text = reward + " $";
         
-        job = new Job(reward, missionTime, destination, rider.meshTransform);
+        job = new Job(reward, missionTime, destination);
+    }
+    
+    public void ChangeState(bool state)
+    {
+        onCoolDown = !state;
+        foreach (GameObject ui in panel)
+        {
+            ui.SetActive(state);
+        }
+
+        this.state = state;
     }
 
     private bool CheckForPlayer(float reach) => !rider.hasJob && Vector3.Distance(rider.meshTransform.position, transform.position) < reach;
     
     private void Start()
     {
+        dropZoneParent = GameObject.Find("DropZones");
         rng = new System.Random();
         coolDown = 60f;
         onCoolDown = false;
         dropzones = dropZoneParent.transform.childCount;
         prompted = false;
+        state = true;
     }
 
     private void Update()
     {
         if (!player)
         {
-            player = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().transform;
+            player = GameObject.FindWithTag("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().transform;
             rider = player.GetComponent<Rider>();
             if (rider)
                 GenerateJob(); // Called to avoid errors but value will be overwritten
@@ -73,10 +88,8 @@ public class Restaurant : MonoBehaviour
             {
                 coolDown = 60f;
                 onCoolDown = false;
-                foreach (GameObject ui in panel)
-                {
-                    ui.SetActive(true);
-                }
+                GetComponentInParent<RestaurantMan>().photonView
+                    .RPC("ChangeState", RpcTarget.All, transform.GetSiblingIndex(), true);
             }
             return;
         }
@@ -93,10 +106,8 @@ public class Restaurant : MonoBehaviour
                 rider.StartJob(job);
                 onCoolDown = true;
                 GenerateJob();
-                foreach (GameObject ui in panel)
-                {
-                    ui.SetActive(false);
-                }
+                GetComponentInParent<RestaurantMan>().photonView
+                    .RPC("ChangeState", RpcTarget.All, transform.GetSiblingIndex(), false);
             }
         }
         else if (prompted)

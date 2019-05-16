@@ -11,16 +11,11 @@ public class Job
     public int price;
     public int time;
     public GameObject destination;
-    private Transform player;
-    private Rider rider;
-    private float reachDistance = 20f;
 
-    public Job(int price, int time, GameObject destination, Transform player)
+    public Job(int price, int time, GameObject destination)
     {
         this.price = price;
         this.time = time;
         this.destination = destination;
-        this.player = player;
-        rider = player.GetComponent<Rider>();
     }
 }

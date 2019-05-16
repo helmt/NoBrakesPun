@@ -52,6 +52,7 @@
               <e p="PhotonLobby.cs" t="Include" />
               <e p="WaitingForOthers.cs" t="Include" />
             </e>
+            <e p="TipsCycle.cs" t="Include" />
           </e>
           <e p="MultiPlayer" t="Include">
             <e p="GamePlay" t="Include">
@@ -59,13 +60,14 @@
               <e p="DropZone.cs" t="Include" />
               <e p="FollowPlayerOrientation.cs" t="Include" />
               <e p="GameMan.cs" t="Include" />
+              <e p="GetRidOfInput.cs" t="Include" />
               <e p="Job.cs" t="Include" />
               <e p="LeaderBoard.cs" t="Include" />
               <e p="LeaderBoardElement.cs" t="Include" />
               <e p="LookAtPlayer.cs" t="Include" />
-              <e p="MainTimer.cs" t="Include" />
               <e p="MusicManager.cs" t="Include" />
               <e p="Restaurant.cs" t="Include" />
+              <e p="RestaurantMan.cs" t="Include" />
               <e p="Rider.cs" t="Include" />
               <e p="SpawnManScript.cs" t="Include" />
               <e p="SpawnPointScript.cs" t="Include" />
@@ -85,7 +87,6 @@
               <e p="Scripts" t="Include">
                 <e p="AnimatorMan.cs" t="Include" />
                 <e p="BikeController.cs" t="Include" />
-                <e p="CameraSwitch.cs" t="Include" />
                 <e p="CameraWork.cs" t="Include" />
                 <e p="Jump.cs" t="Include" />
                 <e p="PackMan.cs" t="Include" />
@@ -95,28 +96,21 @@
           </e>
           <e p="SinglePlayer" t="Include">
             <e p="Bike" t="Include">
-              <e p="Bike" t="Include">
+              <e p="Scripts" t="Include">
                 <e p="AnimatorManS.cs" t="Include" />
                 <e p="BikeControllerS.cs" t="Include" />
-                <e p="CameraSwitchS.cs" t="Include" />
+                <e p="CameraSwitch.cs" t="Include" />
                 <e p="JumpS.cs" t="Include" />
-                <e p="PackManS.cs" t="Include" />
+                <e p="StopOnCollisionS.cs" t="Include" />
               </e>
-              <e p="PlayerS.cs" t="Include" />
-              <e p="StopOnCollisionS.cs" t="Include" />
             </e>
             <e p="GamePlay" t="Include">
               <e p="RaceMenu.cs" t="Include" />
-              <e p="SingleGame.cs" t="Include" />
             </e>
-            <e p="Intelligence" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="GraphS.cs" t="Include" />
-                <e p="MoveS.cs" t="Include" />
-              </e>
-            </e>
-            <e p="MiniMap" t="Include">
+            <e p="HUD" t="Include">
               <e p="MiniMapS.cs" t="Include" />
+              <e p="MusicManagerS.cs" t="Include" />
+              <e p="PauseMenuS.cs" t="Include" />
             </e>
           </e>
         </e>

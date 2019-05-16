@@ -22,7 +22,6 @@ public class BikeController : MonoBehaviourPun, IPunObservable
     private float DAmax = 10f;
 
     public bool gamePaused;
-    private Vector3 nullVector3 = new Vector3(0f, 0f, 0f);
 
     public Animator anim;
 
@@ -42,7 +41,7 @@ public class BikeController : MonoBehaviourPun, IPunObservable
         if (gamePaused)
         {
             GetComponent<AudioSource>().volume = 0f;
-            bike.velocity = nullVector3;
+            bike.velocity = Vector3.zero;
             return;
         }
         
@@ -104,7 +103,7 @@ public class BikeController : MonoBehaviourPun, IPunObservable
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("vehicle")) bike.velocity = nullVector3;
+        if (other.gameObject.CompareTag("vehicle")) bike.velocity = Vector3.zero;
     }
 }
 

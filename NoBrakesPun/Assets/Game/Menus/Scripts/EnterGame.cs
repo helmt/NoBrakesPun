@@ -25,6 +25,7 @@ public class EnterGame : MonoBehaviourPunCallbacks
     public GameObject nameScreen;
     public GameObject waitingScreen;
     public GameObject loadingScreen;
+    public GameObject singleScreen;
     public Text statusText;
 
     public InputField joinName;
@@ -111,7 +112,7 @@ public class EnterGame : MonoBehaviourPunCallbacks
                 statusText.text = "Game cannot last more than 3 hours";
                 return;
             }
-            GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime = gameTime;
+            GameObject.FindWithTag("SpawnMan").GetComponent<SpawnManScript>().gameTime  = gameTime * 60;
         }
         else
         {
@@ -123,6 +124,10 @@ public class EnterGame : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(createName.text, roomOptions);
     }
     public void ExitGame() => Application.Quit();
+
+    public void PlaySingle() => SceneManager.LoadScene("Single");
+
+    public void PlayFree() => SceneManager.LoadScene("Free");
 
     public void FromNameToMulti()
     {
@@ -165,6 +170,7 @@ public class EnterGame : MonoBehaviourPunCallbacks
         nameScreen.SetActive(false);
         waitingScreen.SetActive(false);
         loadingScreen.SetActive(false);
+        singleScreen.SetActive(false);
     }
 
     void OnEnable() => ResetMenu();

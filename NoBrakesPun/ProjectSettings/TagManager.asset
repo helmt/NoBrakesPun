@@ -11,6 +11,9 @@ TagManager:
   - LeaderBoard
   - MapBase
   - SpawnMan
+  - GameManager
+  - Target
+  - MusicMan
   layers:
   - Default
   - TransparentFX

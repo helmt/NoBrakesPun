@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviourPun
 
     public void ExitToMainMenu()
     {
-        PhotonNetwork.Disconnect();
         SceneManager.LoadScene("Menu");
     }
 
@@ -30,7 +29,7 @@ public class PauseMenu : MonoBehaviourPun
     {
         if (!_bikeController)
         {
-            _bikeController = GameObject.Find("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<BikeController>();
+            _bikeController = GameObject.FindWithTag("GameManager").GetComponent<GameMan>().GetLocalPlayerInstance().GetComponent<BikeController>();
             _bikeController.gamePaused = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape))

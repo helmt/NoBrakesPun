@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1271658652203452606}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 0}
   gameTime: 0
+  correctGameTime: 0
   bg: {fileID: 0}
   timerGo: {fileID: 0}
   endScreen: {fileID: 0}

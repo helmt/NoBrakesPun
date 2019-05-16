@@ -11,23 +11,27 @@ using Random = UnityEngine.Random;
 public class RaceMenu : MonoBehaviour
 {
     public GameObject rider;
-    public GameObject HUD;
-    public GameObject spawnPointsParent;
+    public GameObject spawnPoint;
+    public GameObject dropParent;
     public GameObject raceMenuUI;
     public GameObject endRaceMenuUI;
-    public GameObject dropZone;
+    public GameObject cameraRig;
+    public Vector3 cameraSpawn;
     public GameObject timerText;
     public GameObject resultText;
     public GameObject goldTimeText;
     public GameObject silverTimeText;
     public GameObject bronzeTimeText;
+    public GameObject pointer;
+
+    private MusicManagerS musicMan;
 
     private Color gold;
     private Color silver;
     private Color bronze;
 
     private bool racing;
-    private Transform[] spawnPoints;
+    private Transform[] dropZones;
     private Transform startLine;
     private Transform endLine;
     private float goldTime;
@@ -35,48 +39,55 @@ public class RaceMenu : MonoBehaviour
     private float bronzeTime;
     private System.Random rng;
     private float time;
+    
+    private Vector3 verticalOffset = new Vector3(0, 8, 0);
 
     private void Start()
     {
         gold = new Color(255, 213, 0, 255);
         silver = new Color(212, 212, 212, 255);
         bronze = new Color(204, 108, 0, 255);
-        rider.SetActive(false);
-        HUD.SetActive(false);
         racing = false;
         rng = new System.Random();
-        spawnPoints = spawnPointsParent.GetComponentsInChildren<Transform>();
+        
+        int dropCount = dropParent.transform.childCount;
+        dropZones = new Transform[dropCount];
+        for (int i = 0; i < dropCount; i++)
+        {
+            dropZones[i] = dropParent.transform.GetChild(i);
+            dropParent.transform.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            dropParent.transform.GetChild(i).GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        }
+        
+        //rider.SetActive(false);
         raceMenuUI.SetActive(true);
         endRaceMenuUI.SetActive(false);
-        //StartRace();
+        musicMan = GameObject.FindWithTag("MusicMan").GetComponent<MusicManagerS>();
     }
     public void StartRace()
     {
-        Debug.Log("started race");
+        cameraRig.transform.position = cameraSpawn;
+        musicMan.SetJobTrack();
         raceMenuUI.SetActive(false);
         endRaceMenuUI.SetActive(false);
-        rider.SetActive(true);
-        HUD.SetActive(true);
-        startLine = spawnPoints[rng.Next(spawnPoints.Length)];
-        do
-        {
-            endLine = spawnPoints[rng.Next(spawnPoints.Length)];
-        } while (endLine == startLine);
+        //rider.SetActive(true);
+        startLine = spawnPoint.transform;
+        endLine = dropZones[rng.Next(dropZones.Length)];
         
         rider.transform.position = startLine.position;
         rider.transform.rotation = startLine.rotation;
 
-        dropZone.transform.position = new Vector3(endLine.position.x, dropZone.transform.position.y, endLine.transform.position.z);
+        endLine.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        endLine.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
         time = 0f;
         Time.timeScale = 1f;
 
-        float distance = Vector3.Distance(startLine.position, endLine.position);
-        Debug.Log(distance);
+        float distance = Vector3.Distance(startLine.position, endLine.GetChild(1).position);
+        pointer.GetComponentInChildren<TextMeshProUGUI>().text = (int) distance + " m";
         goldTime = distance / 40;
         silverTime = distance / 15;
         bronzeTime = distance / 10;
-        Debug.Log(goldTime + "   " + silverTime + "    " + bronzeTime);
         racing = true;
     }
 
@@ -84,24 +95,57 @@ public class RaceMenu : MonoBehaviour
     {
         if (racing)
         {
-            if (Vector3.Distance(rider.transform.position, endLine.position) < 50f)
+            float distance = Vector3.Distance(rider.transform.position, endLine.GetChild(1).position);
+            pointer.GetComponentInChildren<TextMeshProUGUI>().text = (int) distance + " m";
+            if (distance < 50f)
+            {
                 EndRace();
-            time += Time.deltaTime;
-            string min = ((int) (time / 60)).ToString();
-            for (int i = min.Length; i < 2; i++) min = "0" + min;
-            string sec = ((int) (time % 60)).ToString();
-            for (int i = sec.Length; i < 2; i++) sec = "0" + sec;
-            timerText.GetComponent<TextMeshProUGUI>().text = min + " : " + sec;
+            }
+            else
+            {
+                time += Time.deltaTime;
+                string min = ((int) (time / 60)).ToString();
+                for (int i = min.Length; i < 2; i++) min = "0" + min;
+                string sec = ((int) (time % 60)).ToString();
+                for (int i = sec.Length; i < 2; i++) sec = "0" + sec;
+                timerText.GetComponent<TextMeshProUGUI>().text = min + " : " + sec;
+
+
+                // Pointer position on screen
+                float minX = pointer.GetComponentInChildren<Image>().GetPixelAdjustedRect().width / 2;
+                float maxX = Screen.width - minX;
+
+                float minY = pointer.GetComponentInChildren<Image>().GetPixelAdjustedRect().height / 2;
+                float maxY = Screen.height - minY;
+
+                Vector2 pos = Camera.main.WorldToScreenPoint(endLine.GetChild(1).position + verticalOffset);
+
+                if (Vector3.Dot(endLine.GetChild(1).position - Camera.main.transform.position, Camera.main.transform.forward) < 0)
+                {
+                    // target is behind player
+                    if (pos.x < Screen.width / 2)
+                        pos.x = maxX;
+                    else
+                        pos.x = minX;
+                }
+
+                pos.x = Mathf.Clamp(pos.x, minX, maxX);
+                pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+                pointer.transform.position = pos;
+            }
         }
     }
 
 
     void EndRace()
     {
-        Debug.Log("raceEnded");
+        musicMan.SetNoJobTrack();
+        endLine.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        endLine.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        
         racing = false;
-        rider.SetActive(false);
-        HUD.SetActive(false);
+        //rider.SetActive(false);
         
         string min = ((int) (goldTime / 60)).ToString();
         for (int i = min.Length; i < 2; i++) min = "0" + min;
@@ -130,8 +174,6 @@ public class RaceMenu : MonoBehaviour
         else
             resultText.GetComponent<TextMeshProUGUI>().color = Color.white;
         
-        Debug.Log(time);
-        
         min = ((int) (time / 60)).ToString();
         for (int i = min.Length; i < 2; i++) min = "0" + min;
         sec = ((int) (time % 60)).ToString();
@@ -139,12 +181,5 @@ public class RaceMenu : MonoBehaviour
         resultText.GetComponent<TextMeshProUGUI>().text = min + " : " + sec;
         endRaceMenuUI.SetActive(true);
         Time.timeScale = 0f;
-    }
-   
-    public void QuitGame ()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
-
     }
 }
