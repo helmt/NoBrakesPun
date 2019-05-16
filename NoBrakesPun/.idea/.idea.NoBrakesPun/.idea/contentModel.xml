@@ -47,9 +47,11 @@
           </e>
           <e p="Menus" t="Include">
             <e p="Scripts" t="Include">
+              <e p="Disclaimer.cs" t="Include" />
               <e p="EnterGame.cs" t="Include" />
               <e p="FromStartToMenu.cs" t="Include" />
               <e p="PhotonLobby.cs" t="Include" />
+              <e p="ResetSetting.cs" t="Include" />
               <e p="WaitingForOthers.cs" t="Include" />
             </e>
             <e p="TipsCycle.cs" t="Include" />

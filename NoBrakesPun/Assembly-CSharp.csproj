@@ -77,9 +77,11 @@
     <Compile Include="Assets\Game\Common\Bike\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Game\Common\Bike\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
     <Compile Include="Assets\Game\Common\Intelligence\Node.cs" />
+    <Compile Include="Assets\Game\Menus\Scripts\Disclaimer.cs" />
     <Compile Include="Assets\Game\Menus\Scripts\EnterGame.cs" />
     <Compile Include="Assets\Game\Menus\Scripts\FromStartToMenu.cs" />
     <Compile Include="Assets\Game\Menus\Scripts\PhotonLobby.cs" />
+    <Compile Include="Assets\Game\Menus\Scripts\ResetSetting.cs" />
     <Compile Include="Assets\Game\Menus\Scripts\WaitingForOthers.cs" />
     <Compile Include="Assets\Game\Menus\TipsCycle.cs" />
     <Compile Include="Assets\Game\MultiPlayer\GamePlay\CollisionHandler.cs" />

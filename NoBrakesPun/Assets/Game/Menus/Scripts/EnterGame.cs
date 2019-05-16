@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Photon;
 using Photon.Realtime;
 using Photon.Pun;
-using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
-using Photon.Chat;
 using Photon.Pun.UtilityScripts;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using AuthenticationValues = Photon.Chat.AuthenticationValues;
 
 public class EnterGame : MonoBehaviourPunCallbacks
 {
+    public GameObject resetSetting;
+    
+    public GameObject disclaimerScreen;
     public GameObject startScreen;
     public GameObject mainScreen;
     public GameObject playScreen;
@@ -143,15 +140,6 @@ public class EnterGame : MonoBehaviourPunCallbacks
             return;
         }
 
-        foreach (var player in PhotonNetwork.PlayerList)
-        {
-            if (player.NickName == userName.text)
-            {
-                statusText.text = "Username already taken.";
-                return;
-            }
-        }
-
         statusText.text = "Joined lobby as " + userName.text;
         PhotonNetwork.LocalPlayer.NickName = userName.text;
         nameScreen.SetActive(false);
@@ -160,7 +148,8 @@ public class EnterGame : MonoBehaviourPunCallbacks
     
     public void ResetMenu()
     {
-        startScreen.SetActive(true);
+        disclaimerScreen.SetActive(GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
+        startScreen.SetActive(!GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
         mainScreen.SetActive(false);
         playScreen.SetActive(false);
         multiScreen.SetActive(false);
@@ -171,9 +160,16 @@ public class EnterGame : MonoBehaviourPunCallbacks
         waitingScreen.SetActive(false);
         loadingScreen.SetActive(false);
         singleScreen.SetActive(false);
+        GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset = false;
     }
 
     void OnEnable() => ResetMenu();
 
-    private void Start() => ResetMenu();
+    private IEnumerator Start()
+    {
+        if (!GameObject.FindWithTag("Reset"))
+            Instantiate(resetSetting, Vector3.zero, Quaternion.identity);
+        yield return new WaitForSeconds(1);
+        ResetMenu();
+    }
 }

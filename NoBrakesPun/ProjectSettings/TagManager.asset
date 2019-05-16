@@ -14,6 +14,7 @@ TagManager:
   - GameManager
   - Target
   - MusicMan
+  - Reset
   layers:
   - Default
   - TransparentFX
