@@ -148,8 +148,11 @@ public class EnterGame : MonoBehaviourPunCallbacks
     
     public void ResetMenu()
     {
-        disclaimerScreen.SetActive(GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
-        startScreen.SetActive(!GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
+        if (GameObject.FindWithTag("Reset"))
+        {
+            disclaimerScreen.SetActive(GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
+            startScreen.SetActive(!GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset);
+        }
         mainScreen.SetActive(false);
         playScreen.SetActive(false);
         multiScreen.SetActive(false);
@@ -160,7 +163,8 @@ public class EnterGame : MonoBehaviourPunCallbacks
         waitingScreen.SetActive(false);
         loadingScreen.SetActive(false);
         singleScreen.SetActive(false);
-        GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset = false;
+        if (GameObject.FindWithTag("Reset"))
+            GameObject.FindWithTag("Reset").GetComponent<ResetSetting>().firstReset = false;
     }
 
     void OnEnable() => ResetMenu();
