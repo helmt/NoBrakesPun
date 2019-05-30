@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviourPun
 
     public void ExitToMainMenu()
     {
+        PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Menu");
     }
 

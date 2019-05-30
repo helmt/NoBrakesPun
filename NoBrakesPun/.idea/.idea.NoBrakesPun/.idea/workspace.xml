@@ -2,31 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683be024-6ddb-43f1-844d-4c789e4a8487" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NoBrakesPun/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoBrakesPun/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NoBrakesPun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoBrakesPun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/MultiPlayer/Intelligence/Traffic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/MultiPlayer/Intelligence/Traffic.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/ZePlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/ZePlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SinglePlayer/Bike/Rider.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SinglePlayer/Bike/Rider.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonChat.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonChat.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonRealtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonRealtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.Culling.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.Culling.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonUnityNetworking.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonWebSocket.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/PhotonWebSocket.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/85e9be-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/85e9be-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/85e9be-ba089064471f6234fa.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/85e9be-ba089064471f6234fa.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/46c5c9-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/46c5c9-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/80/800da45e6b3e47b479961a3080a49480" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/80/800da45e6b3e47b479961a3080a49480" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/43/434b52296558c654cb11aaf7b4e3ccab" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/43/434b52296558c654cb11aaf7b4e3ccab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/58/587420185bf043e448d16639498dcea5" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/58/587420185bf043e448d16639498dcea5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/84/844d5f7de8eca0b4f94c8d1210007696" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/84/844d5f7de8eca0b4f94c8d1210007696" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/8d/8d2ae78c32a93d949ad080e25493019d" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/8d/8d2ae78c32a93d949ad080e25493019d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/95/95ccb7e579ad0ad4c80f40ae3a4e6443" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/95/95ccb7e579ad0ad4c80f40ae3a4e6443" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ba/ba089064471f6234fa6a9e1feceb444d" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ba/ba089064471f6234fa6a9e1feceb444d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/PhotonWebSocket.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/PhotonWebSocket.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,81 +33,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/GameMan.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <folding>
+                <marker date="1557949200603" expanded="false" signature="6:127" ph="..." />
+                <marker date="1557949200603" expanded="true" signature="184:4289" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="731:925" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="767:826" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="839:919" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="951:2048" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="1352:1615" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="1647:1897" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="1951:2042" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2102:2163" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2190:2329" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2245:2323" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2358:2506" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2533:4215" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2616:3005" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2658:2975" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="2810:2961" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="3217:4200" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="3265:3768" ph="{...}" />
+                <marker date="1557949200603" expanded="true" signature="3424:3542" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
+            <state relative-caret-position="228">
+              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
               <folding>
-                <marker date="1559072326879" expanded="false" signature="6:189" ph="..." />
-                <marker date="1559072326879" expanded="true" signature="241:5319" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1057:1166" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1200:1493" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1245:1406" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1521:1717" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1566:1664" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1747:3462" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="1842:1940" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2056:2466" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2098:2228" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2260:2391" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2479:2583" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2625:2733" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2795:3232" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2835:2960" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="2993:3117" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="3245:3349" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="3677:4192" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="3722:3825" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="3865:3989" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="4225:5050" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="4276:4518" ph="{...}" />
-                <marker date="1559072326879" expanded="true" signature="5120:5317" ph="{...}" />
+                <marker date="1559256524253" expanded="false" signature="6:131" ph="..." />
+                <marker date="1559256524253" expanded="true" signature="174:1511" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="418:505" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="531:640" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="668:1509" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="704:921" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="967:1109" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="1140:1275" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="1288:1503" ph="{...}" />
+                <marker date="1559256524253" expanded="true" signature="1353:1493" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/Scripts/Jump.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="551">
+              <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
               <folding>
-                <marker date="1557307641269" expanded="false" signature="6:163" ph="..." />
-                <marker date="1557307641269" expanded="true" signature="226:1761" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="468:522" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="541:1759" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="725:1668" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="780:868" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="914:1080" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="1126:1290" ph="{...}" />
-                <marker date="1557307641269" expanded="true" signature="1303:1658" ph="/* if (bike.velocity.magnitude * 3.6f &lt; 1) ... */" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/Restaurant.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-              <folding>
-                <marker date="1557948250291" expanded="false" signature="6:153" ph="..." />
-                <marker date="1557948250291" expanded="true" signature="194:3481" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="795:1435" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="1480:1644" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="1556:1609" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="1816:2075" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2102:3478" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2129:2448" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2472:2836" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2554:2806" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2878:3351" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="2915:3008" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="3053:3341" ph="{...}" />
-                <marker date="1557948250291" expanded="true" signature="3378:3459" ph="{...}" />
+                <marker date="1559256770593" expanded="false" signature="6:131" ph="..." />
+                <marker date="1559256770593" expanded="true" signature="172:917" ph="{...}" />
+                <marker date="1559256770593" expanded="true" signature="383:435" ph="{...}" />
+                <marker date="1559256770593" expanded="true" signature="461:625" ph="{...}" />
+                <marker date="1559256770593" expanded="true" signature="653:915" ph="{...}" />
+                <marker date="1559256770593" expanded="true" signature="705:909" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -146,7 +132,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/Scripts/CameraWork.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="532">
               <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
               <folding>
                 <marker date="1557750919834" expanded="false" signature="6:44" ph="..." />
@@ -358,7 +344,6 @@
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/SpawnManScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/MainTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/Job.cs" />
-        <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/Restaurant.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/GameMan.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/Rider.cs" />
@@ -372,7 +357,6 @@
         <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/MinimapS.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/Bike/Scripts/JumpS.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/Common/Bike/Standard Assets/Cameras/Scripts/AbstractTargetFollower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/Bike/Scripts/BikeControllerS.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/FollowPlayerOrientation.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/Bike/Scripts/CameraSwitch.cs" />
@@ -384,6 +368,8 @@
         <option value="$PROJECT_DIR$/Assets/Game/Menus/Scripts/Disclaimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/Menus/Scripts/ResetSetting.cs" />
         <option value="$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs" />
       </list>
     </option>
   </component>
@@ -399,6 +385,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -469,69 +456,6 @@
               <item name="Project" type="e068e287:UnityExplorerRootNode" />
               <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
               <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="Menus" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="Menus" type="1045f7f1:UnityExplorerNode" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="GamePlay" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="HUD" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="Intelligence" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="Intelligence" type="1045f7f1:UnityExplorerNode" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
-              <item name="MultiPlayer" type="1045f7f1:UnityExplorerNode" />
-              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Game" type="1045f7f1:UnityExplorerNode" />
               <item name="SinglePlayer" type="1045f7f1:UnityExplorerNode" />
             </path>
             <path>
@@ -569,11 +493,10 @@
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
-      <pane id="AssemblyExplorer" />
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -640,11 +563,12 @@
       <workItem from="1558028743103" duration="3147000" />
       <workItem from="1558037299120" duration="994000" />
       <workItem from="1559072180528" duration="743000" />
+      <workItem from="1559256424049" duration="1082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205621000" />
+    <option name="totallyTimeSpent" value="206703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,9 +581,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20149253" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -752,35 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/GameMan.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-          <folding>
-            <marker date="1557949200603" expanded="false" signature="6:127" ph="..." />
-            <marker date="1557949200603" expanded="true" signature="184:4289" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="731:925" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="767:826" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="839:919" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="951:2048" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="1352:1615" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="1647:1897" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="1951:2042" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2102:2163" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2190:2329" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2245:2323" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2358:2506" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2533:4215" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2616:3005" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2658:2975" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="2810:2961" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="3217:4200" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="3265:3768" ph="{...}" />
-            <marker date="1557949200603" expanded="true" signature="3424:3542" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -973,21 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <marker date="1557958746003" expanded="false" signature="6:131" ph="..." />
-            <marker date="1557958746003" expanded="true" signature="172:853" ph="{...}" />
-            <marker date="1557958746003" expanded="true" signature="383:435" ph="{...}" />
-            <marker date="1557958746003" expanded="true" signature="461:625" ph="{...}" />
-            <marker date="1557958746003" expanded="true" signature="653:851" ph="{...}" />
-            <marker date="1557958746003" expanded="true" signature="705:845" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/LookAtPlayer.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1000,25 +879,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/MusicManager1.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="75" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
-          <folding>
-            <marker date="1557939106700" expanded="false" signature="6:131" ph="..." />
-            <marker date="1557939106700" expanded="true" signature="174:1476" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="418:470" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="496:605" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="633:1474" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="669:886" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="932:1074" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="1105:1240" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="1253:1468" ph="{...}" />
-            <marker date="1557939106700" expanded="true" signature="1318:1458" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Game/SinglePlayer/GamePlay/RaceMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1240,12 +1100,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
+          <folding>
+            <marker date="1559072326879" expanded="true" signature="241:5319" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1057:1166" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1200:1493" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1245:1406" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1521:1717" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1566:1664" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1747:3462" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="1842:1940" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2056:2466" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2098:2228" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2260:2391" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2479:2583" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2625:2733" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2795:3232" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2835:2960" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="2993:3117" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="3245:3349" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="3677:4192" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="3722:3825" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="3865:3989" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="4225:5050" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="4276:4518" ph="{...}" />
+            <marker date="1559072326879" expanded="true" signature="5120:5317" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/Scripts/Jump.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state relative-caret-position="38">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <marker date="1557307641269" expanded="false" signature="6:163" ph="..." />
             <marker date="1557307641269" expanded="true" signature="226:1761" ph="{...}" />
             <marker date="1557307641269" expanded="true" signature="468:522" ph="{...}" />
             <marker date="1557307641269" expanded="true" signature="541:1759" ph="{...}" />
@@ -1261,7 +1152,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/Restaurant.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
             <marker date="1557948250291" expanded="false" signature="6:153" ph="..." />
             <marker date="1557948250291" expanded="true" signature="194:3481" ph="{...}" />
@@ -1300,6 +1191,44 @@
             <marker date="1556969454042" expanded="false" signature="6:78" ph="..." />
             <marker date="1556969454042" expanded="true" signature="124:313" ph="{...}" />
             <marker date="1556969454042" expanded="true" signature="187:311" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/Scripts/CameraWork.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <marker date="1557750919834" expanded="false" signature="6:44" ph="..." />
+            <marker date="1557750919834" expanded="true" signature="77:6777" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="84:153" ph="/// Camera work. Follow a target ... " />
+            <marker date="1557750919834" expanded="true" signature="197:6775" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="212:1655" ph="Private Fields" />
+            <marker date="1557750919834" expanded="false" signature="1666:2866" ph="MonoBehaviour Callbacks" />
+            <marker date="1557750919834" expanded="true" signature="1708:1835" ph="/// MonoBehaviour method called on GameObject by Unity during initialization phase ... " />
+            <marker date="1557750919834" expanded="true" signature="1856:2026" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="1950:2014" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="2037:2334" ph="/// MonoBehaviour method called after all Update functions have been called. This is useful to order script execu ... " />
+            <marker date="1557750919834" expanded="true" signature="2360:2845" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="2383:2583" ph="/* The transform target may not destroy on level load, ... */" />
+            <marker date="1557750919834" expanded="true" signature="2639:2703" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="2782:2835" ph="{...}" />
+            <marker date="1557750919834" expanded="false" signature="2877:3388" ph="Public Methods" />
+            <marker date="1557750919834" expanded="true" signature="2910:3123" ph="/// Raises the start following event. ... " />
+            <marker date="1557750919834" expanded="true" signature="3162:3367" ph="{...}" />
+            <marker date="1557750919834" expanded="false" signature="3399:6769" ph="Private Methods" />
+            <marker date="1557750919834" expanded="true" signature="3433:3508" ph="/// Follow the target smoothly ... " />
+            <marker date="1557750919834" expanded="true" signature="3529:4899" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="4399:4502" ph="/* Set the position of the camera on the x-z plane to: ... */" />
+            <marker date="1557750919834" expanded="true" signature="4910:5025" ph="/// Directly position the camera to a the specified Target and center. ... " />
+            <marker date="1557750919834" expanded="true" signature="5044:5223" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="5234:5409" ph="/// Sets up the rotation of the camera to always be behind the target ... " />
+            <marker date="1557750919834" expanded="true" signature="5457:5951" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="5982:6749" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="6037:6739" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="6085:6397" ph="{...}" />
+            <marker date="1557750919834" expanded="true" signature="6418:6725" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1378,73 +1307,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/Resources/Scripts/CameraWork.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/GamePlay/GameMan.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state>
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
-            <marker date="1557750919834" expanded="false" signature="6:44" ph="..." />
-            <marker date="1557750919834" expanded="true" signature="77:6777" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="84:153" ph="/// Camera work. Follow a target ... " />
-            <marker date="1557750919834" expanded="true" signature="197:6775" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="212:1655" ph="Private Fields" />
-            <marker date="1557750919834" expanded="false" signature="1666:2866" ph="MonoBehaviour Callbacks" />
-            <marker date="1557750919834" expanded="true" signature="1708:1835" ph="/// MonoBehaviour method called on GameObject by Unity during initialization phase ... " />
-            <marker date="1557750919834" expanded="true" signature="1856:2026" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="1950:2014" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="2037:2334" ph="/// MonoBehaviour method called after all Update functions have been called. This is useful to order script execu ... " />
-            <marker date="1557750919834" expanded="true" signature="2360:2845" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="2383:2583" ph="/* The transform target may not destroy on level load, ... */" />
-            <marker date="1557750919834" expanded="true" signature="2639:2703" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="2782:2835" ph="{...}" />
-            <marker date="1557750919834" expanded="false" signature="2877:3388" ph="Public Methods" />
-            <marker date="1557750919834" expanded="true" signature="2910:3123" ph="/// Raises the start following event. ... " />
-            <marker date="1557750919834" expanded="true" signature="3162:3367" ph="{...}" />
-            <marker date="1557750919834" expanded="false" signature="3399:6769" ph="Private Methods" />
-            <marker date="1557750919834" expanded="true" signature="3433:3508" ph="/// Follow the target smoothly ... " />
-            <marker date="1557750919834" expanded="true" signature="3529:4899" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="4399:4502" ph="/* Set the position of the camera on the x-z plane to: ... */" />
-            <marker date="1557750919834" expanded="true" signature="4910:5025" ph="/// Directly position the camera to a the specified Target and center. ... " />
-            <marker date="1557750919834" expanded="true" signature="5044:5223" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="5234:5409" ph="/// Sets up the rotation of the camera to always be behind the target ... " />
-            <marker date="1557750919834" expanded="true" signature="5457:5951" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="5982:6749" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="6037:6739" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="6085:6397" ph="{...}" />
-            <marker date="1557750919834" expanded="true" signature="6418:6725" ph="{...}" />
+            <marker date="1557949200603" expanded="false" signature="6:127" ph="..." />
+            <marker date="1557949200603" expanded="true" signature="184:4289" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="731:925" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="767:826" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="839:919" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="951:2048" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="1352:1615" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="1647:1897" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="1951:2042" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2102:2163" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2190:2329" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2245:2323" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2358:2506" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2533:4215" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2616:3005" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2658:2975" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="2810:2961" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="3217:4200" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="3265:3768" ph="{...}" />
+            <marker date="1557949200603" expanded="true" signature="3424:3542" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Menus/Scripts/EnterGame.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Game/SinglePlayer/HUD/PauseMenuS.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
+        <state relative-caret-position="551">
+          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
           <folding>
-            <marker date="1559072326879" expanded="false" signature="6:189" ph="..." />
-            <marker date="1559072326879" expanded="true" signature="241:5319" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1057:1166" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1200:1493" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1245:1406" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1521:1717" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1566:1664" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1747:3462" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="1842:1940" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2056:2466" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2098:2228" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2260:2391" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2479:2583" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2625:2733" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2795:3232" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2835:2960" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="2993:3117" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="3245:3349" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="3677:4192" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="3722:3825" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="3865:3989" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="4225:5050" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="4276:4518" ph="{...}" />
-            <marker date="1559072326879" expanded="true" signature="5120:5317" ph="{...}" />
+            <marker date="1559256770593" expanded="false" signature="6:131" ph="..." />
+            <marker date="1559256770593" expanded="true" signature="172:917" ph="{...}" />
+            <marker date="1559256770593" expanded="true" signature="383:435" ph="{...}" />
+            <marker date="1559256770593" expanded="true" signature="461:625" ph="{...}" />
+            <marker date="1559256770593" expanded="true" signature="653:915" ph="{...}" />
+            <marker date="1559256770593" expanded="true" signature="705:909" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/MultiPlayer/HUD/PauseMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <marker date="1559256524253" expanded="false" signature="6:131" ph="..." />
+            <marker date="1559256524253" expanded="true" signature="174:1511" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="418:505" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="531:640" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="668:1509" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="704:921" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="967:1109" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="1140:1275" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="1288:1503" ph="{...}" />
+            <marker date="1559256524253" expanded="true" signature="1353:1493" ph="{...}" />
           </folding>
         </state>
       </provider>

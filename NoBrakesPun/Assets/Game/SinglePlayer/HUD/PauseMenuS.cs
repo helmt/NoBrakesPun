@@ -31,6 +31,7 @@ public class PauseMenuS : MonoBehaviour
         {
             pauseUI.SetActive(!pauseUI.activeSelf);
             bikeController.gamePaused = !bikeController.gamePaused;
+            Time.timeScale = bikeController.gamePaused ? 0 : 1;
         }
     }
 }

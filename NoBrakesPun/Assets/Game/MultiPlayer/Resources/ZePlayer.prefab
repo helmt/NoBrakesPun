@@ -330,7 +330,7 @@ MonoBehaviour:
   MaxSpeed: 200
   reverseMaxSpeed: 30
   Brake: 150000
-  CoefAcc: 20
+  CoefAcc: 50
   gamePaused: 0
   anim: {fileID: 0}
 --- !u!114 &3130
