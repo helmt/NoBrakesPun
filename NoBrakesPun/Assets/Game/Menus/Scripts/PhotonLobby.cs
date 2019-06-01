@@ -16,7 +16,6 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         statusText.text = "Connected to master server";
-        PhotonNetwork.Instantiate("SpawnMan", Vector3.zero, Quaternion.identity);
     }
 
     public override void OnDisconnected(DisconnectCause cause)

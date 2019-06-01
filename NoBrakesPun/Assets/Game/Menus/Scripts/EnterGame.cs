@@ -30,13 +30,25 @@ public class EnterGame : MonoBehaviourPunCallbacks
     public InputField createSize;
     public InputField createTime;// TODO How to implement?
     public InputField userName;
-    
-    public void ConnectToServer() => PhotonNetwork.ConnectUsingSettings();
+
+    public void ConnectToServer()
+    {
+        PhotonNetwork.ConnectUsingSettings();
+        
+    }
 
     public void DisconnectFromServer()
     {
         PhotonNetwork.Disconnect();
         statusText.text = "Disconnected from master server";
+    }
+
+    public void CreateSpawnMan()
+    {
+        if (!GameObject.FindWithTag("SpawnMan"))
+            PhotonNetwork.Instantiate("SpawnMan", Vector3.zero, Quaternion.identity);
+        if (!PhotonNetwork.InLobby)
+            PhotonNetwork.JoinLobby();
     }
 
     public void FromPlayToName()

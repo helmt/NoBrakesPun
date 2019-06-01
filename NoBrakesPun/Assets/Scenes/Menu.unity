@@ -3527,7 +3527,7 @@ MonoBehaviour:
     spaceCount: 31
     wordCount: 32
     linkCount: 0
-    lineCount: 3
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -7070,6 +7070,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1456297076700873153}
         m_MethodName: FromPlayToName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1456297076700873153}
+        m_MethodName: CreateSpawnMan
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
